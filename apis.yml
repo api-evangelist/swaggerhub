@@ -13,10 +13,10 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Documentation
   - API Design
-  - OpenAPI
   - API Management
+  - Documentation
+  - OpenAPI
 created: '2026-03-03'
 modified: '2026-03-16'
 url: https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/apis.yml
@@ -33,8 +33,8 @@ apis:
     humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
     baseURL: https://api.swaggerhub.com
     tags:
-      - API Registry
       - API Management
+      - API Registry
       - Documentation
       - OpenAPI
     properties:
@@ -57,10 +57,10 @@ apis:
     humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
     baseURL: https://api.swaggerhub.com
     tags:
-      - Users
-      - Teams
-      - Organizations
       - Access Control
+      - Organizations
+      - Teams
+      - Users
     properties:
       - type: Documentation
         url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
