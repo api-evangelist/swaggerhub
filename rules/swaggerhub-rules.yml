@@ -1,0 +1,75 @@
+extends: spectral:oas
+rules:
+
+  swaggerhub-operations-have-tags:
+    description: All SwaggerHub API operations must have at least one tag
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  swaggerhub-operations-have-summaries:
+    description: All SwaggerHub API operations must have a summary
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: summary
+      function: truthy
+
+  swaggerhub-summaries-title-case:
+    description: SwaggerHub operation summaries must use Title Case
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*([ ][A-Z][a-zA-Z0-9]*)*$"
+
+  swaggerhub-operations-have-operation-ids:
+    description: All SwaggerHub API operations must have an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+
+  swaggerhub-operations-have-descriptions:
+    description: All SwaggerHub API operations should have a description
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: description
+      function: truthy
+
+  swaggerhub-path-params-required:
+    description: Path parameters must be marked as required
+    severity: error
+    given: "$.paths[*][*].parameters[?(@.in == 'path')]"
+    then:
+      field: required
+      function: truthy
+
+  swaggerhub-schemas-have-descriptions:
+    description: All component schemas must have a description
+    severity: warn
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+
+  swaggerhub-responses-have-descriptions:
+    description: All response objects must have a description
+    severity: warn
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  swaggerhub-security-scheme-defined:
+    description: API must define at least one security scheme
+    severity: error
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy

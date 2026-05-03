@@ -1,0 +1,40 @@
+{
+  "operation": "Search APIs",
+  "request": {
+    "method": "GET",
+    "url": "https://api.swaggerhub.com/specs?specType=API&query=petstore&limit=5",
+    "headers": {
+      "Authorization": "YOUR_SWAGGERHUB_API_KEY",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "offset": 0,
+      "totalCount": 42,
+      "apis": [
+        {
+          "name": "petstore",
+          "description": "A sample Pet Store API",
+          "owner": "swagger",
+          "specType": "API",
+          "visibility": "PUBLIC",
+          "tags": ["Pets", "Sample"],
+          "versions": [
+            {
+              "version": "1.0.0",
+              "created": "2026-01-15T10:00:00Z",
+              "modified": "2026-03-01T14:00:00Z",
+              "published": true,
+              "url": "https://api.swaggerhub.com/apis/swagger/petstore/1.0.0"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

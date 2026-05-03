@@ -1,71 +1,76 @@
 aid: swaggerhub
 name: SwaggerHub
-segments:
-  - Documentation
 description: >-
-  SwaggerHub is SmartBear's enterprise collaborative API design and
-  documentation platform built around the OpenAPI specification. It provides
-  tools for designing, building, documenting, and consuming RESTful APIs,
-  with support for OpenAPI 2.0, OpenAPI 3.0, OpenAPI 3.1, and AsyncAPI
-  specifications.
+  SwaggerHub is SmartBear's enterprise collaborative API design and documentation
+  platform built around the OpenAPI specification. It provides tools for designing,
+  building, documenting, and consuming RESTful APIs with support for OpenAPI 2.0,
+  OpenAPI 3.0, OpenAPI 3.1, and AsyncAPI specifications. The platform offers
+  automated validation, team collaboration, lifecycle management, integrations
+  with CI/CD pipelines, and an organizational API registry.
 type: Index
-position: Consumer
-access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - API Design
   - API Management
+  - API Registry
   - Documentation
   - OpenAPI
-created: '2026-03-03'
-modified: '2026-03-16'
+  - SmartBear
 url: https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/apis.yml
+created: '2026-03-03'
+modified: '2026-05-02'
 specificationVersion: '0.19'
 apis:
   - aid: swaggerhub:swaggerhub-registry-api
     name: SwaggerHub Registry API
     description: >-
-      The SwaggerHub Registry API allows you to access, manage, and update
-      your organization's APIs, domains, and projects. You can search the
-      public API catalog and add and trigger API-level integrations. It
-      provides programmatic access to SwaggerHub resources including APIs,
-      domains, integrations, projects, and templates.
+      The SwaggerHub Registry API allows programmatic access to all SwaggerHub
+      resources including APIs, domains, integrations, projects, templates, and
+      standardization rulesets. Use it to manage API versions, publish/unpublish
+      APIs, run integrations, manage project memberships, and retrieve OpenAPI
+      definitions in JSON or YAML format.
     humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
     baseURL: https://api.swaggerhub.com
     tags:
       - API Management
       - API Registry
       - Documentation
+      - Integrations
       - OpenAPI
+      - Projects
     properties:
       - type: Documentation
         url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
       - type: API Reference
-        url: https://app.swaggerhub.com/apis-docs/swagger-hub/registry-api/
+        url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
       - type: OpenAPI
-        url: https://app.swaggerhub.com/apis/swagger-hub/registry-api
+        url: https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-registry-api-openapi.yml
       - type: Postman Collection
         url: https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+
   - aid: swaggerhub:swaggerhub-user-management-api
     name: SwaggerHub User Management API
     description: >-
-      The SwaggerHub User Management API enables organizations to automate
-      the provisioning of new users and teams. You can get information about
-      organizations and their members, add and remove organization members,
-      and change their roles in bulk. It also supports managing resource
-      access permissions for users and teams.
+      The SwaggerHub User Management API enables organizations to automate user
+      provisioning, manage team memberships, and control resource access. It supports
+      adding and removing organization members, changing user roles (Owner, Designer,
+      Consumer), and managing resource access permissions for users and teams.
     humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
     baseURL: https://api.swaggerhub.com
     tags:
       - Access Control
       - Organizations
       - Teams
+      - User Management
       - Users
     properties:
       - type: Documentation
         url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
       - type: API Reference
-        url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api
+        url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-user-management-openapi.yml
+
 common:
   - type: Portal
     url: https://swagger.io/tools/swaggerhub/
@@ -101,6 +106,7 @@ common:
     url: https://swagger.io/about/
   - type: License
     url: https://swagger.io/license/
+
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

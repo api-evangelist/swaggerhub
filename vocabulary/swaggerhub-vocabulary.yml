@@ -1,0 +1,154 @@
+vocabulary:
+  name: SwaggerHub Vocabulary
+  description: >-
+    Vocabulary for SwaggerHub, SmartBear's collaborative API design and registry
+    platform. Covers API lifecycle management, registry operations, collaboration
+    features, standardization, and integration concepts.
+  created: '2026-05-02'
+  modified: '2026-05-02'
+  tags:
+    - API Design
+    - API Management
+    - OpenAPI
+    - SmartBear
+
+  terms:
+
+    - term: SwaggerHub
+      definition: >-
+        SmartBear's enterprise collaborative platform for designing, documenting,
+        and managing APIs using OpenAPI and AsyncAPI specifications. Provides a
+        centralized registry, inline editor, validation, team collaboration,
+        and CI/CD integrations.
+      tags:
+        - Core
+        - Platform
+
+    - term: API Registry
+      definition: >-
+        The central repository in SwaggerHub where organizations store, version,
+        and discover their API definitions. Supports public and private APIs
+        across teams and organizations.
+      tags:
+        - Core
+        - Registry
+
+    - term: Owner
+      definition: >-
+        The user or organization namespace that owns an API, domain, or template
+        in SwaggerHub. Every resource URL includes the owner as the first path
+        segment (e.g., /apis/{owner}/{api}).
+      tags:
+        - Registry
+        - Access Control
+
+    - term: Domain
+      definition: >-
+        A reusable collection of OpenAPI components (schemas, parameters, responses)
+        stored in SwaggerHub and referenced by multiple API definitions using $ref.
+        Enables DRY (Don't Repeat Yourself) component management.
+      tags:
+        - Registry
+        - OpenAPI
+
+    - term: Template
+      definition: >-
+        A pre-built API definition structure in SwaggerHub that teams can fork to
+        bootstrap new API projects with consistent patterns and standards.
+      tags:
+        - Registry
+
+    - term: Project
+      definition: >-
+        A logical grouping of related APIs and domains in SwaggerHub, used to
+        organize resources by product line, team, or service domain.
+      tags:
+        - Registry
+        - Organization
+
+    - term: Lifecycle Status
+      definition: >-
+        The publish/unpublish state of an API version in SwaggerHub. Published APIs
+        are visible to consumers; unpublished versions are in development. Controlled
+        via the lifecycle settings endpoint.
+      tags:
+        - Lifecycle
+        - Registry
+
+    - term: Integration
+      definition: >-
+        A configured automation between SwaggerHub and an external system such as
+        GitHub, Bitbucket, AWS API Gateway, or a CI/CD pipeline. Integrations
+        can synchronize API definitions, generate code, or trigger deployment.
+      tags:
+        - Integrations
+        - Automation
+
+    - term: Standardization
+      definition: >-
+        SwaggerHub's built-in API design governance feature that applies Spectral
+        rulesets to validate API definitions against organizational conventions.
+        Standardization scores reflect compliance with the defined rules.
+      tags:
+        - Governance
+        - Standardization
+
+    - term: Spectral Ruleset
+      definition: >-
+        A set of Spectral linting rules used by SwaggerHub to enforce API design
+        standards. Organizations upload custom rulesets via the Registry API and
+        SwaggerHub applies them automatically on API save.
+      tags:
+        - Governance
+        - Standardization
+
+    - term: API Key
+      definition: >-
+        A secret token used to authenticate requests to the SwaggerHub Registry API
+        and User Management API. Found in My Account > API Key in the SwaggerHub UI.
+        Passed as the Authorization header value.
+      tags:
+        - Authentication
+        - Security
+
+    - term: Organization
+      definition: >-
+        A shared SwaggerHub namespace for teams, providing centralized API governance,
+        member management, team-based access control, and shared domains.
+      tags:
+        - Access Control
+        - Collaboration
+
+    - term: Role
+      definition: >-
+        A level of access within a SwaggerHub organization. OWNER has full admin
+        access; DESIGNER can create and edit APIs; CONSUMER has read-only access.
+      tags:
+        - Access Control
+
+    - term: Comment
+      definition: >-
+        Inline review feedback attached to a specific element of an API definition
+        in SwaggerHub. Comments can be opened, resolved, and replied to — enabling
+        async design review workflows.
+      tags:
+        - Collaboration
+        - Review
+
+    - term: Fork
+      definition: >-
+        A copy of an API version made in a different owner namespace. Used to
+        create derivative APIs or experiment with changes without affecting the
+        original definition.
+      tags:
+        - Registry
+        - Versioning
+
+    - term: Version
+      definition: >-
+        A specific snapshot of an API definition, identified by a version string
+        (e.g., 1.0.0). SwaggerHub supports semantic versioning and allows
+        multiple versions to coexist.
+      tags:
+        - Lifecycle
+        - Registry

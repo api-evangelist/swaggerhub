@@ -1,0 +1,18 @@
+{
+  "operation": "Create API Definition",
+  "request": {
+    "method": "POST",
+    "url": "https://api.swaggerhub.com/apis/myorg/petstore?version=1.0.0&isPrivate=false",
+    "headers": {
+      "Authorization": "YOUR_SWAGGERHUB_API_KEY",
+      "Content-Type": "application/yaml"
+    },
+    "body": "openapi: 3.0.1\ninfo:\n  title: Pet Store API\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      summary: List Pets\n      operationId: listPets\n      tags:\n        - Pets\n      responses:\n        '200':\n          description: A list of pets"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Location": "https://api.swaggerhub.com/apis/myorg/petstore/1.0.0"
+    }
+  }
+}

@@ -1,0 +1,373 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SwaggerHub Registry API"
+  description: >-
+    Programmatic access to SwaggerHub registry resources including APIs, domains,
+    integrations, projects, templates, and standardization rulesets. Manage API
+    versions, lifecycle settings, and CI/CD integrations via REST.
+  tags:
+    - API Management
+    - API Registry
+    - Documentation
+    - OpenAPI
+    - SmartBear
+    - SwaggerHub
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SWAGGERHUB_API_KEY: SWAGGERHUB_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: swaggerhub-registry
+      baseUri: https://api.swaggerhub.com
+      description: "SwaggerHub Registry API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{SWAGGERHUB_API_KEY}}"
+        placement: header
+      resources:
+        - name: search
+          path: /specs
+          description: "Search APIs, domains, and templates"
+          operations:
+            - name: search-specs
+              method: GET
+              description: "Search SwaggerHub registry for APIs, domains, and templates"
+              inputParameters:
+                - name: specType
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by type: API, DOMAIN, TEMPLATE"
+                - name: owner
+                  in: query
+                  type: string
+                  required: false
+                - name: query
+                  in: query
+                  type: string
+                  required: false
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: owner-apis
+          path: /apis/{owner}
+          description: "Owner API management"
+          operations:
+            - name: get-owner-apis
+              method: GET
+              description: "List APIs for an owner"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: api-versions
+          path: /apis/{owner}/{api}
+          description: "API version management"
+          operations:
+            - name: get-api-versions
+              method: GET
+              description: "Get all versions of an API"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+                - name: api
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-or-update-api
+              method: POST
+              description: "Create or update an API definition"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+                - name: api
+                  in: path
+                  type: string
+                  required: true
+                - name: version
+                  in: query
+                  type: string
+                  required: false
+                - name: isPrivate
+                  in: query
+                  type: boolean
+                  required: false
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: yaml
+                data:
+                  spec: "{{tools.spec}}"
+
+            - name: delete-api
+              method: DELETE
+              description: "Delete all versions of an API"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+                - name: api
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: api-definition
+          path: /apis/{owner}/{api}/{version}
+          description: "API definition retrieval"
+          operations:
+            - name: get-api-definition
+              method: GET
+              description: "Get API definition for a specific version"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+                - name: api
+                  in: path
+                  type: string
+                  required: true
+                - name: version
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: integrations
+          path: /apis/{owner}/{api}/{version}/integrations
+          description: "CI/CD integration management"
+          operations:
+            - name: list-integrations
+              method: GET
+              description: "List integrations for an API version"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+                - name: api
+                  in: path
+                  type: string
+                  required: true
+                - name: version
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: projects
+          path: /projects/{owner}
+          description: "Project management"
+          operations:
+            - name: list-projects
+              method: GET
+              description: "List projects for an organization"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-project
+              method: POST
+              description: "Create a new project"
+              inputParameters:
+                - name: owner
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  name: "{{tools.name}}"
+                  description: "{{tools.description}}"
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: swaggerhub-registry-rest
+      resources:
+        - path: /v1/specs
+          name: search
+          operations:
+            - method: GET
+              name: search-specs
+              description: "Search SwaggerHub registry"
+              call: "swaggerhub-registry.search-specs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/apis/{owner}
+          name: owner-apis
+          operations:
+            - method: GET
+              name: get-owner-apis
+              description: "List APIs for an owner"
+              call: "swaggerhub-registry.get-owner-apis"
+              with:
+                owner: "rest.owner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/apis/{owner}/{api}/{version}
+          name: api-definition
+          operations:
+            - method: GET
+              name: get-api-definition
+              description: "Get API definition"
+              call: "swaggerhub-registry.get-api-definition"
+              with:
+                owner: "rest.owner"
+                api: "rest.api"
+                version: "rest.version"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/projects/{owner}
+          name: projects
+          operations:
+            - method: GET
+              name: list-projects
+              description: "List projects"
+              call: "swaggerhub-registry.list-projects"
+              with:
+                owner: "rest.owner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: swaggerhub-registry-mcp
+      transport: http
+      tools:
+        - name: search-specs
+          description: "Search the SwaggerHub registry for APIs, domains, and templates"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.search-specs"
+          with:
+            query: "tools.query"
+            specType: "tools.specType"
+            owner: "tools.owner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-api-definition
+          description: "Get the OpenAPI definition for a specific SwaggerHub API version"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.get-api-definition"
+          with:
+            owner: "tools.owner"
+            api: "tools.api"
+            version: "tools.version"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-or-update-api
+          description: "Create or update an API definition in SwaggerHub"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "swaggerhub-registry.create-or-update-api"
+          with:
+            owner: "tools.owner"
+            api: "tools.api"
+            version: "tools.version"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-integrations
+          description: "List CI/CD integrations configured for an API version"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.list-integrations"
+          with:
+            owner: "tools.owner"
+            api: "tools.api"
+            version: "tools.version"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-projects
+          description: "List projects in a SwaggerHub organization"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.list-projects"
+          with:
+            owner: "tools.owner"
+          outputParameters:
+            - type: object
+              mapping: "$."

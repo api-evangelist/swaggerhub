@@ -1,0 +1,310 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SwaggerHub API Lifecycle Management"
+  description: >-
+    Workflow capability for managing the full API lifecycle in SwaggerHub:
+    discovering APIs, creating and updating definitions, managing versions,
+    controlling lifecycle settings (publish/unpublish), running integrations,
+    and organizing APIs into projects. Combines the Registry API and User
+    Management API for end-to-end API governance.
+  tags:
+    - API Design
+    - API Management
+    - API Registry
+    - Documentation
+    - OpenAPI
+    - SmartBear
+    - SwaggerHub
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SWAGGERHUB_API_KEY: SWAGGERHUB_API_KEY
+
+capability:
+  consumes:
+    - import: swaggerhub-registry
+      location: ./shared/swaggerhub-registry.yaml
+    - import: swaggerhub-user-mgmt
+      location: ./shared/swaggerhub-user-management.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: swaggerhub-api-lifecycle-api
+      description: "Unified REST API for SwaggerHub API lifecycle management."
+      resources:
+        - path: /v1/search
+          name: search
+          description: "Search the SwaggerHub registry"
+          operations:
+            - method: GET
+              name: search-specs
+              description: "Search APIs, domains, and templates"
+              call: "swaggerhub-registry.search-specs"
+              with:
+                query: "rest.query"
+                specType: "rest.specType"
+                owner: "rest.owner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/apis/{owner}
+          name: owner-apis
+          description: "APIs for an owner"
+          operations:
+            - method: GET
+              name: get-owner-apis
+              description: "List all APIs for an owner"
+              call: "swaggerhub-registry.get-owner-apis"
+              with:
+                owner: "rest.owner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/apis/{owner}/{api}/{version}
+          name: api-definition
+          description: "API definition management"
+          operations:
+            - method: GET
+              name: get-api-definition
+              description: "Get API definition for a version"
+              call: "swaggerhub-registry.get-api-definition"
+              with:
+                owner: "rest.owner"
+                api: "rest.api"
+                version: "rest.version"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/apis/{owner}/{api}
+          name: api-management
+          description: "API lifecycle management"
+          operations:
+            - method: POST
+              name: create-or-update-api
+              description: "Create or update API definition"
+              call: "swaggerhub-registry.create-or-update-api"
+              with:
+                owner: "rest.owner"
+                api: "rest.api"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-api
+              description: "Delete an API"
+              call: "swaggerhub-registry.delete-api"
+              with:
+                owner: "rest.owner"
+                api: "rest.api"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/integrations/{owner}/{api}/{version}
+          name: integrations
+          description: "CI/CD integrations"
+          operations:
+            - method: GET
+              name: list-integrations
+              description: "List integrations for an API version"
+              call: "swaggerhub-registry.list-integrations"
+              with:
+                owner: "rest.owner"
+                api: "rest.api"
+                version: "rest.version"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/projects/{owner}
+          name: projects
+          description: "Project management"
+          operations:
+            - method: GET
+              name: list-projects
+              description: "List projects"
+              call: "swaggerhub-registry.list-projects"
+              with:
+                owner: "rest.owner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-project
+              description: "Create a new project"
+              call: "swaggerhub-registry.create-project"
+              with:
+                owner: "rest.owner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/orgs/{org}/members
+          name: org-members
+          description: "Organization member management"
+          operations:
+            - method: GET
+              name: get-organization-members
+              description: "List organization members"
+              call: "swaggerhub-user-mgmt.get-organization-members"
+              with:
+                org: "rest.org"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: add-organization-members
+              description: "Invite users to organization"
+              call: "swaggerhub-user-mgmt.add-organization-members"
+              with:
+                org: "rest.org"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/orgs/{org}/teams
+          name: org-teams
+          description: "Team management"
+          operations:
+            - method: GET
+              name: get-organization-teams
+              description: "List organization teams"
+              call: "swaggerhub-user-mgmt.get-organization-teams"
+              with:
+                org: "rest.org"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: swaggerhub-api-lifecycle-mcp
+      transport: http
+      description: "MCP server for AI-assisted SwaggerHub API lifecycle management."
+      tools:
+        - name: search-apis
+          description: "Search the SwaggerHub registry for APIs, domains, and templates"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.search-specs"
+          with:
+            query: "tools.query"
+            specType: "tools.specType"
+            owner: "tools.owner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-api-definition
+          description: "Retrieve the OpenAPI definition for a specific SwaggerHub API version"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.get-api-definition"
+          with:
+            owner: "tools.owner"
+            api: "tools.api"
+            version: "tools.version"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-or-update-api
+          description: "Create or update an API definition in SwaggerHub"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "swaggerhub-registry.create-or-update-api"
+          with:
+            owner: "tools.owner"
+            api: "tools.api"
+            version: "tools.version"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-integrations
+          description: "List CI/CD integrations configured for a SwaggerHub API version"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.list-integrations"
+          with:
+            owner: "tools.owner"
+            api: "tools.api"
+            version: "tools.version"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-projects
+          description: "List projects in a SwaggerHub organization"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-registry.list-projects"
+          with:
+            owner: "tools.owner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-project
+          description: "Create a new SwaggerHub project to organize related APIs"
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "swaggerhub-registry.create-project"
+          with:
+            owner: "tools.owner"
+            name: "tools.name"
+            description: "tools.description"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-organization-members
+          description: "List all members of a SwaggerHub organization with their roles"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-user-mgmt.get-organization-members"
+          with:
+            org: "tools.org"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: add-organization-members
+          description: "Invite users to a SwaggerHub organization"
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "swaggerhub-user-mgmt.add-organization-members"
+          with:
+            org: "tools.org"
+            members: "tools.members"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-organization-teams
+          description: "List all teams within a SwaggerHub organization"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "swaggerhub-user-mgmt.get-organization-teams"
+          with:
+            org: "tools.org"
+          outputParameters:
+            - type: object
+              mapping: "$."

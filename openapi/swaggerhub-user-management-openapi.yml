@@ -1,0 +1,388 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub User Management API
+  description: >-
+    The SwaggerHub User Management API enables organizations to automate user
+    provisioning and access control. Use it to add/remove organization members,
+    change user roles, manage team memberships, and control resource access
+    permissions for users and teams.
+  version: '1.3.3'
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+
+servers:
+  - url: https://api.swaggerhub.com
+    description: SwaggerHub API
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: Organizations
+    description: Manage organization membership and roles
+  - name: Teams
+    description: Manage team membership and access
+  - name: Users
+    description: User information and role management
+
+paths:
+
+  /orgs/{org}/members:
+    get:
+      operationId: getOrganizationMembers
+      summary: Get Organization Members
+      description: >-
+        Returns a paginated list of members in the specified organization with
+        their user IDs, usernames, email addresses, roles, and account status.
+      tags:
+        - Organizations
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Organization name
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 25
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: Filter by first name, last name, or email
+      responses:
+        '200':
+          description: List of organization members
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalCount:
+                    type: integer
+                  offset:
+                    type: integer
+                  members:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OrgMember'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Insufficient permissions
+
+    post:
+      operationId: addOrganizationMembers
+      summary: Add Organization Members
+      description: >-
+        Invite one or more users to an organization by email address. Optionally
+        set their role (OWNER, DESIGNER, or CONSUMER). Non-existing users will
+        receive an invitation email.
+      tags:
+        - Organizations
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [members]
+              properties:
+                members:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MemberInvite'
+      responses:
+        '200':
+          description: Members added/invited
+        '400':
+          description: Invalid request
+        '403':
+          description: Only owners can add members
+
+  /orgs/{org}/members/{user}:
+    delete:
+      operationId: removeOrganizationMember
+      summary: Remove Organization Member
+      description: Remove a user from an organization. The user loses access to all org resources.
+      tags:
+        - Organizations
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: user
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Email address or username of the member to remove
+      responses:
+        '200':
+          description: Member removed
+        '403':
+          description: Insufficient permissions
+        '404':
+          description: Member not found
+
+    put:
+      operationId: updateOrganizationMemberRole
+      summary: Update Organization Member Role
+      description: Change a user's role within an organization.
+      tags:
+        - Organizations
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: user
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [role]
+              properties:
+                role:
+                  type: string
+                  enum: [OWNER, DESIGNER, CONSUMER]
+      responses:
+        '200':
+          description: Role updated
+        '400':
+          description: Invalid role
+        '404':
+          description: Member not found
+
+  /orgs/{org}/teams:
+    get:
+      operationId: getOrganizationTeams
+      summary: Get Organization Teams
+      description: Returns a list of all teams within the specified organization.
+      tags:
+        - Teams
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Team list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+
+    post:
+      operationId: createTeam
+      summary: Create Team
+      description: Create a new team within an organization.
+      tags:
+        - Teams
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTeam'
+      responses:
+        '201':
+          description: Team created
+
+  /orgs/{org}/teams/{team}/members:
+    get:
+      operationId: getTeamMembers
+      summary: Get Team Members
+      description: Returns all members of a specific team within an organization.
+      tags:
+        - Teams
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: team
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Team member list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrgMember'
+
+    post:
+      operationId: addTeamMember
+      summary: Add Team Member
+      description: Add a user (must already be an org member) to a team.
+      tags:
+        - Teams
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: team
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username]
+              properties:
+                username:
+                  type: string
+      responses:
+        '200':
+          description: Member added to team
+
+  /orgs/{org}/teams/{team}/members/{user}:
+    delete:
+      operationId: removeTeamMember
+      summary: Remove Team Member
+      description: Remove a user from a team (user remains an org member).
+      tags:
+        - Teams
+      parameters:
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: team
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: user
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Member removed from team
+        '404':
+          description: Member not found in team
+
+components:
+  schemas:
+    OrgMember:
+      type: object
+      description: A member of a SwaggerHub organization
+      properties:
+        userId:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum: [OWNER, DESIGNER, CONSUMER]
+        status:
+          type: string
+          enum: [ACTIVE, PENDING, INACTIVE]
+
+    MemberInvite:
+      type: object
+      description: An invitation to add a user to an organization
+      required: [email]
+      properties:
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum: [OWNER, DESIGNER, CONSUMER]
+          default: CONSUMER
+
+    Team:
+      type: object
+      description: A team within a SwaggerHub organization
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        memberCount:
+          type: integer
+
+    NewTeam:
+      type: object
+      description: Request body for creating a new team
+      required: [name]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub.

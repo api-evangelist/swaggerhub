@@ -1,0 +1,35 @@
+{
+  "name": "SwaggerHub API Entry Structure",
+  "description": "The data structure for an API registry entry in SwaggerHub.",
+  "created": "2026-05-02",
+  "modified": "2026-05-02",
+  "structure": {
+    "root": {
+      "type": "object",
+      "fields": [
+        { "name": "name", "type": "string", "required": false },
+        { "name": "description", "type": "string", "required": false },
+        { "name": "owner", "type": "string", "required": false },
+        { "name": "url", "type": "string (uri)", "required": false },
+        { "name": "specType", "type": "string (enum: API|DOMAIN|TEMPLATE)", "required": false },
+        { "name": "visibility", "type": "string (enum: PUBLIC|PRIVATE)", "required": false },
+        { "name": "tags", "type": "array of string", "required": false },
+        {
+          "name": "versions",
+          "type": "array",
+          "required": false,
+          "items": {
+            "type": "ApiVersion",
+            "fields": [
+              { "name": "version", "type": "string", "required": false },
+              { "name": "created", "type": "string (date-time)", "required": false },
+              { "name": "modified", "type": "string (date-time)", "required": false },
+              { "name": "published", "type": "boolean", "required": false },
+              { "name": "url", "type": "string (uri)", "required": false }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/swaggerhub/json-schema/swaggerhub-api-entry-schema.json",
+  "title": "SwaggerHub API Entry",
+  "description": "Schema representing an API, domain, or template entry in the SwaggerHub registry.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "API name identifier"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the API"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Username or organization that owns this API"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "SwaggerHub URL for this API"
+    },
+    "specType": {
+      "type": "string",
+      "enum": ["API", "DOMAIN", "TEMPLATE"],
+      "description": "Type of specification"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["PUBLIC", "PRIVATE"],
+      "description": "Visibility setting"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Taxonomy tags for the API"
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ApiVersion"
+      }
+    }
+  },
+  "$defs": {
+    "ApiVersion": {
+      "type": "object",
+      "description": "A single version of an API in SwaggerHub",
+      "properties": {
+        "version": { "type": "string" },
+        "created": { "type": "string", "format": "date-time" },
+        "modified": { "type": "string", "format": "date-time" },
+        "published": { "type": "boolean" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}
