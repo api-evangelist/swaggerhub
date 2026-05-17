@@ -41,7 +41,7 @@ apis:
     properties:
       - type: Documentation
         url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
-      - type: API Reference
+      - type: APIReference
         url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-registry-api-openapi.yml
@@ -66,7 +66,7 @@ apis:
     properties:
       - type: Documentation
         url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
-      - type: API Reference
+      - type: APIReference
         url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-user-management-openapi.yml
@@ -74,31 +74,31 @@ apis:
 common:
   - type: Portal
     url: https://swagger.io/tools/swaggerhub/
-  - type: Sign Up
+  - type: SignUp
     url: https://app.swaggerhub.com/signup
   - type: Login
     url: https://app.swaggerhub.com/login/
   - type: Documentation
     url: https://support.smartbear.com/swaggerhub/docs/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://support.smartbear.com/swaggerhub/docs/en/get-started.html
   - type: Pricing
     url: https://swagger.io/product/pricing/
   - type: Blog
     url: https://swagger.io/blog/
-  - type: Status
+  - type: StatusPage
     url: https://status.swaggerhub.com/
   - type: Support
     url: https://support.smartbear.com/swaggerhub/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://app.swaggerhub.com/terms-of-service
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://app.swaggerhub.com/eula
   - type: Integrations
     url: https://swagger.io/tools/swaggerhub/integrations/
   - type: CLI
     url: https://github.com/SmartBear/swaggerhub-cli
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/swagger-api
   - type: OpenAPI Specification
     url: https://swagger.io/specification/
