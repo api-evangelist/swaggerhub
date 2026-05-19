@@ -1,0 +1,219 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SwaggerHub Registry API — Projects
+  description: 'SwaggerHub Registry API — Projects. 4 operations. Lead operation: List Projects. Self-contained Naftiko capability
+    covering one Swaggerhub business surface.'
+  tags:
+  - Swaggerhub
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SWAGGERHUB_API_KEY: SWAGGERHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: registry-projects
+    baseUri: https://api.swaggerhub.com
+    description: SwaggerHub Registry API — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-owner
+      path: /projects/{owner}
+      operations:
+      - name: listprojects
+        method: GET
+        description: List Projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+      - name: createproject
+        method: POST
+        description: Create Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-owner-projectId
+      path: /projects/{owner}/{projectId}
+      operations:
+      - name: getproject
+        method: GET
+        description: Get Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+        - name: projectId
+          in: path
+          type: string
+          required: true
+      - name: deleteproject
+        method: DELETE
+        description: Delete Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+        - name: projectId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.SWAGGERHUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: registry-projects-rest
+    port: 8080
+    description: REST adapter for SwaggerHub Registry API — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{owner}
+      name: projects-owner
+      description: REST surface for projects-owner.
+      operations:
+      - method: GET
+        name: listprojects
+        description: List Projects
+        call: registry-projects.listprojects
+        with:
+          owner: rest.owner
+          page: rest.page
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createproject
+        description: Create Project
+        call: registry-projects.createproject
+        with:
+          owner: rest.owner
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{owner}/{projectid}
+      name: projects-owner-projectid
+      description: REST surface for projects-owner-projectId.
+      operations:
+      - method: GET
+        name: getproject
+        description: Get Project
+        call: registry-projects.getproject
+        with:
+          owner: rest.owner
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteproject
+        description: Delete Project
+        call: registry-projects.deleteproject
+        with:
+          owner: rest.owner
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: registry-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SwaggerHub Registry API — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-projects
+      description: List Projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: registry-projects.listprojects
+      with:
+        owner: tools.owner
+        page: tools.page
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-project
+      description: Create Project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: registry-projects.createproject
+      with:
+        owner: tools.owner
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-project
+      description: Get Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: registry-projects.getproject
+      with:
+        owner: tools.owner
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-project
+      description: Delete Project
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: registry-projects.deleteproject
+      with:
+        owner: tools.owner
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,279 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SwaggerHub User Management API — Teams
+  description: 'SwaggerHub User Management API — Teams. 5 operations. Lead operation: Get Organization Teams. Self-contained
+    Naftiko capability covering one Swaggerhub business surface.'
+  tags:
+  - Swaggerhub
+  - Teams
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SWAGGERHUB_API_KEY: SWAGGERHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: user-management-teams
+    baseUri: https://api.swaggerhub.com
+    description: SwaggerHub User Management API — Teams business capability. Self-contained, no shared references.
+    resources:
+    - name: orgs-org-teams
+      path: /orgs/{org}/teams
+      operations:
+      - name: getorganizationteams
+        method: GET
+        description: Get Organization Teams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+      - name: createteam
+        method: POST
+        description: Create Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: orgs-org-teams-team-members
+      path: /orgs/{org}/teams/{team}/members
+      operations:
+      - name: getteammembers
+        method: GET
+        description: Get Team Members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: team
+          in: path
+          type: string
+          required: true
+      - name: addteammember
+        method: POST
+        description: Add Team Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: team
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: orgs-org-teams-team-members-user
+      path: /orgs/{org}/teams/{team}/members/{user}
+      operations:
+      - name: removeteammember
+        method: DELETE
+        description: Remove Team Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: team
+          in: path
+          type: string
+          required: true
+        - name: user
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.SWAGGERHUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: user-management-teams-rest
+    port: 8080
+    description: REST adapter for SwaggerHub User Management API — Teams. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/orgs/{org}/teams
+      name: orgs-org-teams
+      description: REST surface for orgs-org-teams.
+      operations:
+      - method: GET
+        name: getorganizationteams
+        description: Get Organization Teams
+        call: user-management-teams.getorganizationteams
+        with:
+          org: rest.org
+          page: rest.page
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createteam
+        description: Create Team
+        call: user-management-teams.createteam
+        with:
+          org: rest.org
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/{org}/teams/{team}/members
+      name: orgs-org-teams-team-members
+      description: REST surface for orgs-org-teams-team-members.
+      operations:
+      - method: GET
+        name: getteammembers
+        description: Get Team Members
+        call: user-management-teams.getteammembers
+        with:
+          org: rest.org
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addteammember
+        description: Add Team Member
+        call: user-management-teams.addteammember
+        with:
+          org: rest.org
+          team: rest.team
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/{org}/teams/{team}/members/{user}
+      name: orgs-org-teams-team-members-user
+      description: REST surface for orgs-org-teams-team-members-user.
+      operations:
+      - method: DELETE
+        name: removeteammember
+        description: Remove Team Member
+        call: user-management-teams.removeteammember
+        with:
+          org: rest.org
+          team: rest.team
+          user: rest.user
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: user-management-teams-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SwaggerHub User Management API — Teams. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-organization-teams
+      description: Get Organization Teams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: user-management-teams.getorganizationteams
+      with:
+        org: tools.org
+        page: tools.page
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-team
+      description: Create Team
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: user-management-teams.createteam
+      with:
+        org: tools.org
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-team-members
+      description: Get Team Members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: user-management-teams.getteammembers
+      with:
+        org: tools.org
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-team-member
+      description: Add Team Member
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: user-management-teams.addteammember
+      with:
+        org: tools.org
+        team: tools.team
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-team-member
+      description: Remove Team Member
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: user-management-teams.removeteammember
+      with:
+        org: tools.org
+        team: tools.team
+        user: tools.user
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,234 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SwaggerHub User Management API — Organizations
+  description: 'SwaggerHub User Management API — Organizations. 4 operations. Lead operation: Get Organization Members. Self-contained
+    Naftiko capability covering one Swaggerhub business surface.'
+  tags:
+  - Swaggerhub
+  - Organizations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SWAGGERHUB_API_KEY: SWAGGERHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: user-management-organizations
+    baseUri: https://api.swaggerhub.com
+    description: SwaggerHub User Management API — Organizations business capability. Self-contained, no shared references.
+    resources:
+    - name: orgs-org-members
+      path: /orgs/{org}/members
+      operations:
+      - name: getorganizationmembers
+        method: GET
+        description: Get Organization Members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          description: Organization name
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        - name: q
+          in: query
+          type: string
+          description: Filter by first name, last name, or email
+      - name: addorganizationmembers
+        method: POST
+        description: Add Organization Members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: orgs-org-members-user
+      path: /orgs/{org}/members/{user}
+      operations:
+      - name: removeorganizationmember
+        method: DELETE
+        description: Remove Organization Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: user
+          in: path
+          type: string
+          description: Email address or username of the member to remove
+          required: true
+      - name: updateorganizationmemberrole
+        method: PUT
+        description: Update Organization Member Role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: user
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.SWAGGERHUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: user-management-organizations-rest
+    port: 8080
+    description: REST adapter for SwaggerHub User Management API — Organizations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/orgs/{org}/members
+      name: orgs-org-members
+      description: REST surface for orgs-org-members.
+      operations:
+      - method: GET
+        name: getorganizationmembers
+        description: Get Organization Members
+        call: user-management-organizations.getorganizationmembers
+        with:
+          org: rest.org
+          page: rest.page
+          limit: rest.limit
+          q: rest.q
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addorganizationmembers
+        description: Add Organization Members
+        call: user-management-organizations.addorganizationmembers
+        with:
+          org: rest.org
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/{org}/members/{user}
+      name: orgs-org-members-user
+      description: REST surface for orgs-org-members-user.
+      operations:
+      - method: DELETE
+        name: removeorganizationmember
+        description: Remove Organization Member
+        call: user-management-organizations.removeorganizationmember
+        with:
+          org: rest.org
+          user: rest.user
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateorganizationmemberrole
+        description: Update Organization Member Role
+        call: user-management-organizations.updateorganizationmemberrole
+        with:
+          org: rest.org
+          user: rest.user
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: user-management-organizations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SwaggerHub User Management API — Organizations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-organization-members
+      description: Get Organization Members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: user-management-organizations.getorganizationmembers
+      with:
+        org: tools.org
+        page: tools.page
+        limit: tools.limit
+        q: tools.q
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-organization-members
+      description: Add Organization Members
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: user-management-organizations.addorganizationmembers
+      with:
+        org: tools.org
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-organization-member
+      description: Remove Organization Member
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: user-management-organizations.removeorganizationmember
+      with:
+        org: tools.org
+        user: tools.user
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-organization-member-role
+      description: Update Organization Member Role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: user-management-organizations.updateorganizationmemberrole
+      with:
+        org: tools.org
+        user: tools.user
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
