@@ -42,7 +42,7 @@ apis:
       - type: OpenAPI
         url: >-
           https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-registry-api-openapi.yml
-      - type: Postman Collection
+      - type: PostmanCollection
         url: https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
   - aid: swaggerhub:swaggerhub-user-management-api
     name: SwaggerHub User Management API
@@ -71,7 +71,7 @@ common:
     url: https://www.linkedin.com/company/smartbear
   - type: Portal
     url: https://swagger.io/tools/swaggerhub/
-  - type: SignUp
+  - type: Signup
     url: https://app.swaggerhub.com/signup
   - type: Login
     url: https://app.swaggerhub.com/login/
