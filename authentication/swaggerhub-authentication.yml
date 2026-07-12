@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/swaggerhub-registry-api-openapi.yml, openapi/swaggerhub-user-management-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the
+    key as the Authorization header value without any prefix.
+  sources:
+  - openapi/swaggerhub-registry-api-openapi.yml
+  - openapi/swaggerhub-user-management-openapi.yml

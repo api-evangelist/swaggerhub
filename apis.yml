@@ -67,6 +67,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-user-management-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/swaggerhub-domain-security.yml
+  - type: Authentication
+    url: authentication/swaggerhub-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/smartbear
   - type: Portal
