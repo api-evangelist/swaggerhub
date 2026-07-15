@@ -67,6 +67,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-user-management-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/swaggerhub-agentic-access.yml
   - type: DomainSecurity
     url: security/swaggerhub-domain-security.yml
   - type: Authentication
