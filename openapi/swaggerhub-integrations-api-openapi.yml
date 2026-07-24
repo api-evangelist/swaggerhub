@@ -1,0 +1,186 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub Registry APIs Integrations API
+  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
+  version: 1.3.0
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+servers:
+- url: https://api.swaggerhub.com
+  description: SwaggerHub Registry API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Integrations
+  description: Configure and trigger CI/CD integrations
+paths:
+  /apis/{owner}/{api}/{version}/integrations:
+    get:
+      operationId: listIntegrations
+      summary: List Integrations
+      description: List all integrations configured for a specific API version.
+      tags:
+      - Integrations
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Integration list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Integration'
+    post:
+      operationId: createIntegration
+      summary: Create Integration
+      description: Configure a new integration (CI/CD, GitHub sync, etc.) for an API version.
+      tags:
+      - Integrations
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationConfig'
+      responses:
+        '201':
+          description: Integration created
+  /apis/{owner}/{api}/{version}/integrations/{integrationId}:
+    delete:
+      operationId: deleteIntegration
+      summary: Delete Integration
+      description: Remove an integration from an API version.
+      tags:
+      - Integrations
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: integrationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Integration deleted
+        '404':
+          description: Integration not found
+  /apis/{owner}/{api}/{version}/integrations/{integrationId}/execute:
+    post:
+      operationId: executeIntegration
+      summary: Execute Integration
+      description: Manually trigger an integration to run against the current API version.
+      tags:
+      - Integrations
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: integrationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Integration triggered
+components:
+  schemas:
+    IntegrationConfig:
+      type: object
+      description: Configuration for creating or updating an integration
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        configType:
+          type: string
+        config:
+          type: object
+          description: Integration-specific configuration properties
+    Integration:
+      type: object
+      description: An integration configured for an API version
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          description: Integration type (e.g., GITHUB, BITBUCKET, AWS_API_GATEWAY)
+        enabled:
+          type: boolean
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.

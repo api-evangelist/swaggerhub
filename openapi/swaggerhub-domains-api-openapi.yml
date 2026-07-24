@@ -1,0 +1,159 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub Registry APIs Domains API
+  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
+  version: 1.3.0
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+servers:
+- url: https://api.swaggerhub.com
+  description: SwaggerHub Registry API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Domains
+  description: Manage shared component domains
+paths:
+  /domains/{owner}/{domain}:
+    get:
+      operationId: getDomainVersions
+      summary: Get Domain Versions
+      description: Returns all versions of the specified domain.
+      tags:
+      - Domains
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Domain version list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiEntry'
+    post:
+      operationId: createOrUpdateDomain
+      summary: Create or Update Domain
+      description: Create or update a shared component domain in SwaggerHub.
+      tags:
+      - Domains
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/yaml:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Domain updated
+        '201':
+          description: Domain created
+    delete:
+      operationId: deleteDomain
+      summary: Delete Domain
+      description: Delete all versions of the specified domain.
+      tags:
+      - Domains
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Domain deleted
+components:
+  schemas:
+    ApiEntry:
+      type: object
+      description: Metadata for an API, domain, or template entry in the SwaggerHub registry
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: string
+        url:
+          type: string
+          format: uri
+        specType:
+          type: string
+          enum:
+          - API
+          - DOMAIN
+          - TEMPLATE
+        visibility:
+          type: string
+          enum:
+          - PUBLIC
+          - PRIVATE
+        tags:
+          type: array
+          items:
+            type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiVersion'
+    ApiVersion:
+      type: object
+      description: A single version of an API in the SwaggerHub registry
+      properties:
+        version:
+          type: string
+        created:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: boolean
+        url:
+          type: string
+          format: uri
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.

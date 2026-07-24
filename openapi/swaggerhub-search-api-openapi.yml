@@ -1,0 +1,154 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub Registry APIs Search API
+  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
+  version: 1.3.0
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+servers:
+- url: https://api.swaggerhub.com
+  description: SwaggerHub Registry API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Search
+  description: Search across APIs, domains, and templates
+paths:
+  /specs:
+    get:
+      operationId: searchSpecs
+      summary: Search APIs Domains and Templates
+      description: Retrieve a paginated list of APIs, domains, and/or templates based on search criteria. Filter by type, owner, visibility, tags, and more.
+      tags:
+      - Search
+      parameters:
+      - name: specType
+        in: query
+        schema:
+          type: string
+          enum:
+          - API
+          - DOMAIN
+          - TEMPLATE
+          - ANY
+        description: Filter by specification type
+      - name: owner
+        in: query
+        schema:
+          type: string
+        description: Filter by owner username or organization
+      - name: query
+        in: query
+        schema:
+          type: string
+        description: Free-text search query
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - NAME
+          - UPDATED
+          - CREATED
+          - OWNER
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+      responses:
+        '200':
+          description: Paginated list of matching specs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApisJson'
+        '401':
+          description: Unauthorized — API key required
+components:
+  schemas:
+    ApiEntry:
+      type: object
+      description: Metadata for an API, domain, or template entry in the SwaggerHub registry
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: string
+        url:
+          type: string
+          format: uri
+        specType:
+          type: string
+          enum:
+          - API
+          - DOMAIN
+          - TEMPLATE
+        visibility:
+          type: string
+          enum:
+          - PUBLIC
+          - PRIVATE
+        tags:
+          type: array
+          items:
+            type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiVersion'
+    ApiVersion:
+      type: object
+      description: A single version of an API in the SwaggerHub registry
+      properties:
+        version:
+          type: string
+        created:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: boolean
+        url:
+          type: string
+          format: uri
+    ApisJson:
+      type: object
+      description: Paginated list of API entries from a SwaggerHub search
+      properties:
+        offset:
+          type: integer
+        totalCount:
+          type: integer
+        apis:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiEntry'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.

@@ -1,0 +1,212 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub Registry APIs Teams API
+  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
+  version: 1.3.0
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+servers:
+- url: https://api.swaggerhub.com
+  description: SwaggerHub Registry API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Teams
+  description: Manage team membership and access
+paths:
+  /orgs/{org}/teams:
+    get:
+      operationId: getOrganizationTeams
+      summary: Get Organization Teams
+      description: Returns a list of all teams within the specified organization.
+      tags:
+      - Teams
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Team list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    post:
+      operationId: createTeam
+      summary: Create Team
+      description: Create a new team within an organization.
+      tags:
+      - Teams
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTeam'
+      responses:
+        '201':
+          description: Team created
+  /orgs/{org}/teams/{team}/members:
+    get:
+      operationId: getTeamMembers
+      summary: Get Team Members
+      description: Returns all members of a specific team within an organization.
+      tags:
+      - Teams
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: team
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Team member list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrgMember'
+    post:
+      operationId: addTeamMember
+      summary: Add Team Member
+      description: Add a user (must already be an org member) to a team.
+      tags:
+      - Teams
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: team
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              properties:
+                username:
+                  type: string
+      responses:
+        '200':
+          description: Member added to team
+  /orgs/{org}/teams/{team}/members/{user}:
+    delete:
+      operationId: removeTeamMember
+      summary: Remove Team Member
+      description: Remove a user from a team (user remains an org member).
+      tags:
+      - Teams
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: team
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Member removed from team
+        '404':
+          description: Member not found in team
+components:
+  schemas:
+    OrgMember:
+      type: object
+      description: A member of a SwaggerHub organization
+      properties:
+        userId:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum:
+          - OWNER
+          - DESIGNER
+          - CONSUMER
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - PENDING
+          - INACTIVE
+    NewTeam:
+      type: object
+      description: Request body for creating a new team
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Team:
+      type: object
+      description: A team within a SwaggerHub organization
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        memberCount:
+          type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.

@@ -1,0 +1,160 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub Registry APIs Projects API
+  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
+  version: 1.3.0
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+servers:
+- url: https://api.swaggerhub.com
+  description: SwaggerHub Registry API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Projects
+  description: Organize APIs and domains into projects
+paths:
+  /projects/{owner}:
+    get:
+      operationId: listProjects
+      summary: List Projects
+      description: Get all projects within an organization.
+      tags:
+      - Projects
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Project list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      operationId: createProject
+      summary: Create Project
+      description: Create a new project within an organization to group related APIs and domains.
+      tags:
+      - Projects
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewProject'
+      responses:
+        '201':
+          description: Project created
+  /projects/{owner}/{projectId}:
+    get:
+      operationId: getProject
+      summary: Get Project
+      description: Retrieve details about a specific project.
+      tags:
+      - Projects
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          description: Project not found
+    delete:
+      operationId: deleteProject
+      summary: Delete Project
+      description: Delete a project and remove all API/domain associations from it.
+      tags:
+      - Projects
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project deleted
+        '404':
+          description: Project not found
+components:
+  schemas:
+    Project:
+      type: object
+      description: A SwaggerHub project grouping APIs and domains
+      properties:
+        projectId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: string
+        apis:
+          type: array
+          items:
+            type: string
+        domains:
+          type: array
+          items:
+            type: string
+    NewProject:
+      type: object
+      description: Request body for creating a new project
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.

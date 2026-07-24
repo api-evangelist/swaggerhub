@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: SwaggerHub Registry APIs Standardization API
+  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
+  version: 1.3.0
+  contact:
+    name: SmartBear SwaggerHub Support
+    url: https://support.smartbear.com/swaggerhub/
+  license:
+    name: SmartBear License
+    url: https://swagger.io/license/
+  x-logo:
+    url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+servers:
+- url: https://api.swaggerhub.com
+  description: SwaggerHub Registry API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Standardization
+  description: Spectral ruleset management for API standardization
+paths:
+  /standardization/spectral-rulesets/{owner}/{name}/zip:
+    get:
+      operationId: getSpectralRulesetBundle
+      summary: Get Spectral Ruleset Bundle
+      description: Download the Spectral ruleset bundle as a ZIP archive.
+      tags:
+      - Standardization
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ruleset ZIP bundle
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+    put:
+      operationId: uploadSpectralRulesetBundle
+      summary: Upload Spectral Ruleset Bundle
+      description: Create or update a Spectral ruleset by uploading a ZIP bundle.
+      tags:
+      - Standardization
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/zip:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Ruleset updated
+        '201':
+          description: Ruleset created
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.
