@@ -6,7 +6,20 @@ description: >-
   OpenAPI 2.0, OpenAPI 3.0, OpenAPI 3.1, and AsyncAPI specifications. The platform offers automated validation, team
   collaboration, lifecycle management, integrations with CI/CD pipelines, and an organizational API registry.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/swaggerhub.png
 tags:
   - API Design
   - API Management
@@ -19,54 +32,207 @@ created: '2026-03-03'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: swaggerhub:swaggerhub-registry-api
-    name: SwaggerHub Registry API
-    description: >-
-      The SwaggerHub Registry API allows programmatic access to all SwaggerHub resources including APIs, domains,
-      integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish/unpublish
-      APIs, run integrations, manage project memberships, and retrieve OpenAPI definitions in JSON or YAML format.
-    humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
-    baseURL: https://api.swaggerhub.com
-    tags:
-      - API Management
-      - API Registry
-      - Documentation
-      - Integrations
-      - OpenAPI
-      - Projects
-    properties:
-      - type: Documentation
-        url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
-      - type: APIReference
-        url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-registry-api-openapi.yml
-      - type: PostmanCollection
-        url: https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
-  - aid: swaggerhub:swaggerhub-user-management-api
-    name: SwaggerHub User Management API
-    description: >-
-      The SwaggerHub User Management API enables organizations to automate user provisioning, manage team memberships,
-      and control resource access. It supports adding and removing organization members, changing user roles (Owner,
-      Designer, Consumer), and managing resource access permissions for users and teams.
-    humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
-    baseURL: https://api.swaggerhub.com
-    tags:
-      - Access Control
-      - Organizations
-      - Teams
-      - User Management
-      - Users
-    properties:
-      - type: Documentation
-        url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
-      - type: APIReference
-        url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/swaggerhub/refs/heads/main/openapi/swaggerhub-user-management-openapi.yml
+- aid: swaggerhub:swaggerhub-apis-api
+  name: SwaggerHub APIs API
+  description: Manage SwaggerHub API definitions and versions
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-apis-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-domains-api
+  name: SwaggerHub Domains API
+  description: Manage shared component domains
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-domains-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-integrations-api
+  name: SwaggerHub Integrations API
+  description: Configure and trigger CI/CD integrations
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-organizations-api
+  name: SwaggerHub Organizations API
+  description: Manage organization membership and roles
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-projects-api
+  name: SwaggerHub Projects API
+  description: Organize APIs and domains into projects
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-projects-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-search-api
+  name: SwaggerHub Search API
+  description: Search across APIs, domains, and templates
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-search-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-settings-api
+  name: SwaggerHub Settings API
+  description: API lifecycle and visibility settings
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-settings-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-standardization-api
+  name: SwaggerHub Standardization API
+  description: Spectral ruleset management for API standardization
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Standardization
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-standardization-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
+- aid: swaggerhub:swaggerhub-teams-api
+  name: SwaggerHub Teams API
+  description: Manage team membership and access
+  humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  baseURL: https://api.swaggerhub.com
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/swaggerhub-teams-api-openapi.yml
+  - type: Documentation
+    url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
+  - type: APIReference
+    url: https://api.swaggerhub.com/apis/swagger-hub/registry-api/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/swaggerhub/documentation/1lsm5uz/swaggerhub-registry-api
+  - type: Documentation
+    url: >-
+      https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
+  - type: APIReference
+    url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/swaggerhub/overview
   - type: AgenticAccess
     url: agentic-access/swaggerhub-agentic-access.yml
   - type: DomainSecurity
