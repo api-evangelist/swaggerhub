@@ -1,0 +1,2074 @@
+{
+  "info": {
+    "_postman_id": "cc74e342-d505-444a-ad46-08cdff360dc4",
+    "name": "SwaggerHub Registry APIs API",
+    "description": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:06:19.000Z",
+    "updatedAt": "2026-07-28T03:06:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc74e342-d505-444a-ad46-08cdff360dc4"
+  },
+  "item": [
+    {
+      "name": "apis",
+      "item": [
+        {
+          "name": "{owner}",
+          "item": [
+            {
+              "name": "{api}",
+              "item": [
+                {
+                  "name": "rename",
+                  "item": [
+                    {
+                      "name": "Rename API",
+                      "id": "8be87ce5-5748-4c8c-9361-0beb95d773ac",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api/rename?newName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api",
+                            "rename"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "newName",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "b3448984-60a8-4d15-b23e-d12b485471e6",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "a9f1da86-19a5-4c4f-a237-b051c131c812",
+                              "key": "api",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Rename an API definition within the same owner namespace."
+                      },
+                      "response": [
+                        {
+                          "id": "4ccf4c35-fd2f-4e56-80e6-9d81ee2600f2",
+                          "name": "API renamed",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/rename?newName=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                "rename"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "newName",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "api"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-4ccf4c35-fd2f-4e56-80e6-9d81ee2600f2"
+                        },
+                        {
+                          "id": "320bdcb1-296d-4147-b566-d6e59f354673",
+                          "name": "Invalid name or name already taken",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/rename?newName=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                "rename"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "newName",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "api"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-320bdcb1-296d-4147-b566-d6e59f354673"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-8be87ce5-5748-4c8c-9361-0beb95d773ac"
+                    }
+                  ],
+                  "id": "ed1d4093-b76e-4eae-acc7-192be1b3fd2c",
+                  "createdAt": "2026-07-28T03:06:20.000Z",
+                  "updatedAt": "2026-07-28T03:06:20.000Z",
+                  "uid": "35240-ed1d4093-b76e-4eae-acc7-192be1b3fd2c"
+                },
+                {
+                  "name": "{version}",
+                  "item": [
+                    {
+                      "name": "swagger.json",
+                      "item": [
+                        {
+                          "name": "Get API Definition JSON",
+                          "id": "b731b926-3a4b-4051-96fb-fd07e24b5875",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/swagger.json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "swagger.json"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b356fba3-3daa-4751-b2a7-c8514cc5aa0d",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a580fe41-2d5e-4b0f-8320-f9004a3d988d",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b9f679a0-ce6f-49d9-ae73-2c091b991f4b",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the API definition in JSON format for a specific version."
+                          },
+                          "response": [
+                            {
+                              "id": "a0601deb-3f9f-4bad-913f-d0834da2a744",
+                              "name": "API definition as JSON",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/swagger.json",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "swagger.json"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-a0601deb-3f9f-4bad-913f-d0834da2a744"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-b731b926-3a4b-4051-96fb-fd07e24b5875"
+                        }
+                      ],
+                      "id": "b03176b8-bb0c-43f2-b0cd-e2227494aaa3",
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-b03176b8-bb0c-43f2-b0cd-e2227494aaa3"
+                    },
+                    {
+                      "name": "swagger.yaml",
+                      "item": [
+                        {
+                          "name": "Get API Definition YAML",
+                          "id": "e9bc2727-5603-4db3-95bd-c24ae381674f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/yaml"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/swagger.yaml",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "swagger.yaml"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fbb58c11-721d-4b73-acd2-a3e94833a715",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "aa3238c1-5b65-47e9-9a49-5fa4073a491b",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "cd16cf87-34a2-4cb3-a6a1-a73ef51303c6",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the API definition in YAML format for a specific version."
+                          },
+                          "response": [
+                            {
+                              "id": "6498682c-17ef-4018-a7e7-1fc20180f304",
+                              "name": "API definition as YAML",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/yaml"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/swagger.yaml",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "swagger.yaml"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/yaml"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-6498682c-17ef-4018-a7e7-1fc20180f304"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-e9bc2727-5603-4db3-95bd-c24ae381674f"
+                        }
+                      ],
+                      "id": "de83e55a-24c8-4b90-9de0-07e5f8e0d062",
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-de83e55a-24c8-4b90-9de0-07e5f8e0d062"
+                    },
+                    {
+                      "name": "fork",
+                      "item": [
+                        {
+                          "name": "Fork API Version",
+                          "id": "b0c9722f-f8d2-4f14-8a72-e98b09875a9e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/fork?newOwner=<string>&newApi=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "fork"
+                              ],
+                              "query": [
+                                {
+                                  "key": "newOwner",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "newApi",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e2902b21-82d9-4b8e-a85d-c3ad073e5431",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "c80c4c7b-337b-43f6-bb23-6ac82fda8d1f",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "9253dd44-4ce4-4a38-ad14-0bc1b6e973ab",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a fork of a specific API version in a new owner namespace."
+                          },
+                          "response": [
+                            {
+                              "id": "e0257172-7242-443c-984f-cb10e49f9f45",
+                              "name": "API forked",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/fork?newOwner=<string>&newApi=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "fork"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "newOwner",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "newApi",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-e0257172-7242-443c-984f-cb10e49f9f45"
+                            },
+                            {
+                              "id": "fe934832-28f5-4c54-a123-23924ec9909e",
+                              "name": "Invalid fork request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/fork?newOwner=<string>&newApi=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "fork"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "newOwner",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "newApi",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-fe934832-28f5-4c54-a123-23924ec9909e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-b0c9722f-f8d2-4f14-8a72-e98b09875a9e"
+                        }
+                      ],
+                      "id": "0549bf2c-eae2-4a50-835b-8184f600a662",
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-0549bf2c-eae2-4a50-835b-8184f600a662"
+                    },
+                    {
+                      "name": "clone",
+                      "item": [
+                        {
+                          "name": "Clone API Version",
+                          "id": "f00b296c-1986-4a8c-a35d-8a7b153dd93e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/clone?newVersion=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "clone"
+                              ],
+                              "query": [
+                                {
+                                  "key": "newVersion",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "11c6fe5a-f84e-4044-b392-7abf1488b673",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b30385e8-f1c4-410d-b341-2d85be2d2412",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "dfbeac05-0d74-4e18-b461-6f0aa1224e39",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a new version by cloning an existing version."
+                          },
+                          "response": [
+                            {
+                              "id": "d14a19b3-6830-445e-8386-640be2025e9f",
+                              "name": "Version cloned",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/clone?newVersion=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "clone"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "newVersion",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-d14a19b3-6830-445e-8386-640be2025e9f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-f00b296c-1986-4a8c-a35d-8a7b153dd93e"
+                        }
+                      ],
+                      "id": "618770d5-e8eb-4eb9-b36b-ccbabc1091b7",
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-618770d5-e8eb-4eb9-b36b-ccbabc1091b7"
+                    },
+                    {
+                      "name": "comments",
+                      "item": [
+                        {
+                          "name": "Get API Comments",
+                          "id": "46969926-d53d-4df2-92ac-aec17452b1df",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/comments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "comments"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "081f8bcf-cbcd-4be7-b076-e44c23834ac9",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "027fbe15-1d69-4d4d-b6bb-51d35249f79d",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "c8b80a61-9b7c-4995-8443-f60dd2966864",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve all comments on a specific API version."
+                          },
+                          "response": [
+                            {
+                              "id": "b7a5a777-e734-49f8-af03-df2cfb11efb9",
+                              "name": "List of comments",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/comments",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "comments"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"text\": \"<string>\",\n    \"author\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"status\": \"OPEN\",\n    \"position\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"text\": \"<string>\",\n    \"author\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"status\": \"RESOLVED\",\n    \"position\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-b7a5a777-e734-49f8-af03-df2cfb11efb9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-46969926-d53d-4df2-92ac-aec17452b1df"
+                        },
+                        {
+                          "name": "Add API Comment",
+                          "id": "d0630505-629f-415c-a4a8-dbfa9e4f29f4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"text\": \"<string>\",\n  \"position\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/comments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "comments"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cdbf5987-c03f-4af0-9936-f35bdd1c1e6e",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "ee3105c5-5b4c-41fe-9e73-1438c141c953",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "d81ea794-4178-4c07-8db4-67d4356b2539",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Add a new review comment to a specific API version."
+                          },
+                          "response": [
+                            {
+                              "id": "c3e90eae-a01f-4937-8b05-c16c9a97b76a",
+                              "name": "Comment created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"text\": \"<string>\",\n  \"position\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/comments",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "comments"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:06:20.000Z",
+                              "updatedAt": "2026-07-28T03:06:20.000Z",
+                              "uid": "35240-c3e90eae-a01f-4937-8b05-c16c9a97b76a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-d0630505-629f-415c-a4a8-dbfa9e4f29f4"
+                        }
+                      ],
+                      "id": "06d48750-df37-4007-a052-68caa4de133c",
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-06d48750-df37-4007-a052-68caa4de133c"
+                    },
+                    {
+                      "name": "Get API Definition",
+                      "id": "a8d0fe4a-0699-4713-a7f6-d662c829d863",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api/:version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api",
+                            ":version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e9f559bf-c2dc-4e83-904e-c7950e5a1eea",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "af558fd7-23be-4e5b-b31f-b06c99f02588",
+                              "key": "api",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "99f9d978-82fb-415e-bbb1-d20b12dd7a85",
+                              "key": "version",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns the OpenAPI or AsyncAPI definition for a specific API version."
+                      },
+                      "response": [
+                        {
+                          "id": "a6b0a8f3-0326-4122-9bac-b54cf65f8b46",
+                          "name": "API definition",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "api"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-a6b0a8f3-0326-4122-9bac-b54cf65f8b46"
+                        },
+                        {
+                          "id": "1fb0c5ac-a4c7-4551-899f-17fab6e1a248",
+                          "name": "API or version not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "api"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-1fb0c5ac-a4c7-4551-899f-17fab6e1a248"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-a8d0fe4a-0699-4713-a7f6-d662c829d863"
+                    },
+                    {
+                      "name": "Delete API Version",
+                      "id": "7c2c1ea9-58ca-4ef7-b293-006ba0d754ee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api/:version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api",
+                            ":version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a1590893-94a1-4509-8c86-6898b42a9268",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "c5d59945-edcb-4fa4-a6d2-63650f59c598",
+                              "key": "api",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "6453c612-81dd-479c-b802-b368048dd05b",
+                              "key": "version",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete a specific version of an API."
+                      },
+                      "response": [
+                        {
+                          "id": "6fc96c9d-e701-4c11-ad3f-de5933a74bb2",
+                          "name": "Version deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "api"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-6fc96c9d-e701-4c11-ad3f-de5933a74bb2"
+                        },
+                        {
+                          "id": "33ec821a-685a-4782-a076-b0892f357977",
+                          "name": "API version not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "api"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:06:20.000Z",
+                          "updatedAt": "2026-07-28T03:06:20.000Z",
+                          "uid": "35240-33ec821a-685a-4782-a076-b0892f357977"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-7c2c1ea9-58ca-4ef7-b293-006ba0d754ee"
+                    }
+                  ],
+                  "id": "cedfc813-0803-428a-9221-ed5642d6ce7c",
+                  "createdAt": "2026-07-28T03:06:20.000Z",
+                  "updatedAt": "2026-07-28T03:06:20.000Z",
+                  "uid": "35240-cedfc813-0803-428a-9221-ed5642d6ce7c"
+                },
+                {
+                  "name": "Get API Versions",
+                  "id": "bb66845e-b03e-47c0-93e0-272484ed8b85",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apis/:owner/:api",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apis",
+                        ":owner",
+                        ":api"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9f668523-7f82-4541-8d22-f04c18369d68",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "60934963-5f69-40e0-b553-34c31dbd070e",
+                          "key": "api",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Returns all versions of the specified API."
+                  },
+                  "response": [
+                    {
+                      "id": "13fffcad-e6be-47d0-afc8-7d47a0cca042",
+                      "name": "API version list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"specType\": \"DOMAIN\",\n  \"visibility\": \"PUBLIC\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"versions\": [\n    {\n      \"version\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"published\": \"<boolean>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"version\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"published\": \"<boolean>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-13fffcad-e6be-47d0-afc8-7d47a0cca042"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:06:20.000Z",
+                  "updatedAt": "2026-07-28T03:06:20.000Z",
+                  "uid": "35240-bb66845e-b03e-47c0-93e0-272484ed8b85"
+                },
+                {
+                  "name": "Create or Update API",
+                  "id": "334b14b2-af3e-4a05-a15e-3c300abecb9b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apis/:owner/:api?version=<string>&isPrivate=<boolean>&force=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apis",
+                        ":owner",
+                        ":api"
+                      ],
+                      "query": [
+                        {
+                          "description": "Version string (defaults to 0.0.1)",
+                          "key": "version",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "isPrivate",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Force update even if version is published",
+                          "key": "force",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8526a9e8-860d-48d3-9897-a2f200ee682c",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "1fa90987-b4d3-4f0a-96cc-8c5567114944",
+                          "key": "api",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create a new API or update an existing API definition in SwaggerHub. Pass the OpenAPI or AsyncAPI specification in the request body."
+                  },
+                  "response": [
+                    {
+                      "id": "c6abe3fa-4787-48f4-bec4-aa96fe9ac819",
+                      "name": "API updated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api?version=<string>&isPrivate=<boolean>&force=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "query": [
+                            {
+                              "description": "Version string (defaults to 0.0.1)",
+                              "key": "version",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "isPrivate",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Force update even if version is published",
+                              "key": "force",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-c6abe3fa-4787-48f4-bec4-aa96fe9ac819"
+                    },
+                    {
+                      "id": "474d5a85-ee70-4d99-9e98-aa8c9e6e05c5",
+                      "name": "API created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api?version=<string>&isPrivate=<boolean>&force=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "query": [
+                            {
+                              "description": "Version string (defaults to 0.0.1)",
+                              "key": "version",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "isPrivate",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Force update even if version is published",
+                              "key": "force",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-474d5a85-ee70-4d99-9e98-aa8c9e6e05c5"
+                    },
+                    {
+                      "id": "ee5f3e66-b0de-4800-8d9e-13f191d1b73b",
+                      "name": "Invalid specification",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api?version=<string>&isPrivate=<boolean>&force=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "query": [
+                            {
+                              "description": "Version string (defaults to 0.0.1)",
+                              "key": "version",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "isPrivate",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Force update even if version is published",
+                              "key": "force",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-ee5f3e66-b0de-4800-8d9e-13f191d1b73b"
+                    },
+                    {
+                      "id": "7687cf81-2343-44ba-9f12-9f6bf9dbb5a7",
+                      "name": "Insufficient permissions",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api?version=<string>&isPrivate=<boolean>&force=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "query": [
+                            {
+                              "description": "Version string (defaults to 0.0.1)",
+                              "key": "version",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "isPrivate",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Force update even if version is published",
+                              "key": "force",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-7687cf81-2343-44ba-9f12-9f6bf9dbb5a7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:06:20.000Z",
+                  "updatedAt": "2026-07-28T03:06:20.000Z",
+                  "uid": "35240-334b14b2-af3e-4a05-a15e-3c300abecb9b"
+                },
+                {
+                  "name": "Delete API",
+                  "id": "90987b4b-102a-4626-a210-ffd43b5a790b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/apis/:owner/:api",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apis",
+                        ":owner",
+                        ":api"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6d698dd1-cbb2-49f7-b0cc-60c4b894ee1f",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "c83471c0-e607-45ad-8cfa-2b2031ec22e7",
+                          "key": "api",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete all versions of the specified API."
+                  },
+                  "response": [
+                    {
+                      "id": "7898c498-712a-4d41-ad5a-8863de347726",
+                      "name": "API deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-7898c498-712a-4d41-ad5a-8863de347726"
+                    },
+                    {
+                      "id": "49130b35-f20b-46d7-abac-96d2ad78bd46",
+                      "name": "Insufficient permissions",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-49130b35-f20b-46d7-abac-96d2ad78bd46"
+                    },
+                    {
+                      "id": "438399f8-7068-4687-8476-f1c2f8cd8033",
+                      "name": "API not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apis/:owner/:api",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apis",
+                            ":owner",
+                            ":api"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "api"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:20.000Z",
+                      "updatedAt": "2026-07-28T03:06:20.000Z",
+                      "uid": "35240-438399f8-7068-4687-8476-f1c2f8cd8033"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:06:20.000Z",
+                  "updatedAt": "2026-07-28T03:06:20.000Z",
+                  "uid": "35240-90987b4b-102a-4626-a210-ffd43b5a790b"
+                }
+              ],
+              "id": "d347949a-0371-495c-a4a5-4fb757376653",
+              "createdAt": "2026-07-28T03:06:20.000Z",
+              "updatedAt": "2026-07-28T03:06:20.000Z",
+              "uid": "35240-d347949a-0371-495c-a4a5-4fb757376653"
+            },
+            {
+              "name": "Get Owner APIs",
+              "id": "61064d1a-a58a-46ce-81fe-d9c6de43ded4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apis/:owner?page=<integer>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apis",
+                    ":owner"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "772ac6d2-d23c-470c-8302-be8f2704fa6c",
+                      "key": "owner",
+                      "value": "<string>",
+                      "description": "(Required) Owner username or organization name"
+                    }
+                  ]
+                },
+                "description": "Returns a list of all API definitions owned by the specified user or organization."
+              },
+              "response": [
+                {
+                  "id": "f1dffdb6-0e00-4450-a0a2-8946bb457608",
+                  "name": "Owner's API list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apis/:owner?page=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apis",
+                        ":owner"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "owner"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"offset\": \"<integer>\",\n  \"totalCount\": \"<integer>\",\n  \"apis\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"specType\": \"TEMPLATE\",\n      \"visibility\": \"PUBLIC\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"versions\": [\n        {\n          \"version\": \"<string>\",\n          \"created\": \"<dateTime>\",\n          \"modified\": \"<dateTime>\",\n          \"published\": \"<boolean>\",\n          \"url\": \"<uri>\"\n        },\n        {\n          \"version\": \"<string>\",\n          \"created\": \"<dateTime>\",\n          \"modified\": \"<dateTime>\",\n          \"published\": \"<boolean>\",\n          \"url\": \"<uri>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"specType\": \"TEMPLATE\",\n      \"visibility\": \"PRIVATE\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"versions\": [\n        {\n          \"version\": \"<string>\",\n          \"created\": \"<dateTime>\",\n          \"modified\": \"<dateTime>\",\n          \"published\": \"<boolean>\",\n          \"url\": \"<uri>\"\n        },\n        {\n          \"version\": \"<string>\",\n          \"created\": \"<dateTime>\",\n          \"modified\": \"<dateTime>\",\n          \"published\": \"<boolean>\",\n          \"url\": \"<uri>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:06:20.000Z",
+                  "updatedAt": "2026-07-28T03:06:20.000Z",
+                  "uid": "35240-f1dffdb6-0e00-4450-a0a2-8946bb457608"
+                }
+              ],
+              "createdAt": "2026-07-28T03:06:20.000Z",
+              "updatedAt": "2026-07-28T03:06:20.000Z",
+              "uid": "35240-61064d1a-a58a-46ce-81fe-d9c6de43ded4"
+            }
+          ],
+          "id": "9364c6e8-f148-4559-8893-6e752fc2ed73",
+          "createdAt": "2026-07-28T03:06:20.000Z",
+          "updatedAt": "2026-07-28T03:06:20.000Z",
+          "uid": "35240-9364c6e8-f148-4559-8893-6e752fc2ed73"
+        }
+      ],
+      "id": "916758bf-67ca-433c-8205-09e163863821",
+      "createdAt": "2026-07-28T03:06:20.000Z",
+      "updatedAt": "2026-07-28T03:06:20.000Z",
+      "uid": "35240-916758bf-67ca-433c-8205-09e163863821"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.swaggerhub.com"
+    }
+  ]
+}

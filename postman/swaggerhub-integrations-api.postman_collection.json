@@ -1,0 +1,614 @@
+{
+  "info": {
+    "_postman_id": "57491875-e437-41a5-b8cb-8b4e3c1bc01b",
+    "name": "SwaggerHub Registry APIs Integrations API",
+    "description": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:06:21.000Z",
+    "updatedAt": "2026-07-28T03:06:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57491875-e437-41a5-b8cb-8b4e3c1bc01b"
+  },
+  "item": [
+    {
+      "name": "apis",
+      "item": [
+        {
+          "name": "{owner}",
+          "item": [
+            {
+              "name": "{api}",
+              "item": [
+                {
+                  "name": "{version}",
+                  "item": [
+                    {
+                      "name": "integrations",
+                      "item": [
+                        {
+                          "name": "{integrationId}",
+                          "item": [
+                            {
+                              "name": "execute",
+                              "item": [
+                                {
+                                  "name": "Execute Integration",
+                                  "id": "f5cb4417-1488-4786-9710-4a89f3328d07",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations/:integrationId/execute",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "apis",
+                                        ":owner",
+                                        ":api",
+                                        ":version",
+                                        "integrations",
+                                        ":integrationId",
+                                        "execute"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "3f1fc6ae-81ee-4fad-aa51-04ff458503a5",
+                                          "key": "owner",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "8dee8d4f-6358-480f-b1df-f08434e45028",
+                                          "key": "api",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "a1861907-bf11-4963-866f-d1e76a72c4f0",
+                                          "key": "version",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "bb5ebea0-5d7c-48e0-b185-23169b17ae85",
+                                          "key": "integrationId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Manually trigger an integration to run against the current API version."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "4d0dc462-49de-4391-84f3-2b6bdb1064b6",
+                                      "name": "Integration triggered",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations/:integrationId/execute",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "apis",
+                                            ":owner",
+                                            ":api",
+                                            ":version",
+                                            "integrations",
+                                            ":integrationId",
+                                            "execute"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "owner"
+                                            },
+                                            {
+                                              "key": "api"
+                                            },
+                                            {
+                                              "key": "version"
+                                            },
+                                            {
+                                              "key": "integrationId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T03:06:22.000Z",
+                                      "updatedAt": "2026-07-28T03:06:22.000Z",
+                                      "uid": "35240-4d0dc462-49de-4391-84f3-2b6bdb1064b6"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:06:21.000Z",
+                                  "updatedAt": "2026-07-28T03:06:21.000Z",
+                                  "uid": "35240-f5cb4417-1488-4786-9710-4a89f3328d07"
+                                }
+                              ],
+                              "id": "208601b2-8927-4a2e-98a3-e0e3e45bb948",
+                              "createdAt": "2026-07-28T03:06:21.000Z",
+                              "updatedAt": "2026-07-28T03:06:21.000Z",
+                              "uid": "35240-208601b2-8927-4a2e-98a3-e0e3e45bb948"
+                            },
+                            {
+                              "name": "Delete Integration",
+                              "id": "8b308197-91c9-4e49-b329-c3d675294882",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations/:integrationId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "integrations",
+                                    ":integrationId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d0c73720-3bfa-437a-8e72-9417762762a5",
+                                      "key": "owner",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "0b38fb4c-38d6-45ec-a002-57de2363f89b",
+                                      "key": "api",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "7773be79-f875-4d3b-a4d8-b0ca9af30fbc",
+                                      "key": "version",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "7e92f5dd-deff-4407-a692-ecf2c2c7c616",
+                                      "key": "integrationId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Remove an integration from an API version."
+                              },
+                              "response": [
+                                {
+                                  "id": "a03d14cc-c051-48a2-b089-abe1b6ffbc29",
+                                  "name": "Integration deleted",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations/:integrationId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "apis",
+                                        ":owner",
+                                        ":api",
+                                        ":version",
+                                        "integrations",
+                                        ":integrationId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "owner"
+                                        },
+                                        {
+                                          "key": "api"
+                                        },
+                                        {
+                                          "key": "version"
+                                        },
+                                        {
+                                          "key": "integrationId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:06:22.000Z",
+                                  "updatedAt": "2026-07-28T03:06:22.000Z",
+                                  "uid": "35240-a03d14cc-c051-48a2-b089-abe1b6ffbc29"
+                                },
+                                {
+                                  "id": "4945473a-6c99-47f4-ac2a-9814e74f633f",
+                                  "name": "Integration not found",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations/:integrationId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "apis",
+                                        ":owner",
+                                        ":api",
+                                        ":version",
+                                        "integrations",
+                                        ":integrationId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "owner"
+                                        },
+                                        {
+                                          "key": "api"
+                                        },
+                                        {
+                                          "key": "version"
+                                        },
+                                        {
+                                          "key": "integrationId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:06:22.000Z",
+                                  "updatedAt": "2026-07-28T03:06:22.000Z",
+                                  "uid": "35240-4945473a-6c99-47f4-ac2a-9814e74f633f"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:06:21.000Z",
+                              "updatedAt": "2026-07-28T03:06:21.000Z",
+                              "uid": "35240-8b308197-91c9-4e49-b329-c3d675294882"
+                            }
+                          ],
+                          "id": "155eb723-1d99-4b0b-81b6-491aa313be1e",
+                          "createdAt": "2026-07-28T03:06:21.000Z",
+                          "updatedAt": "2026-07-28T03:06:21.000Z",
+                          "uid": "35240-155eb723-1d99-4b0b-81b6-491aa313be1e"
+                        },
+                        {
+                          "name": "List Integrations",
+                          "id": "20652720-4c06-4878-971b-b414b87e9244",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "integrations"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9bdcf8ec-a79e-456e-ada6-145fa132f2a8",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b71dd85a-0a4e-43a3-81ae-a4eef3ce9e23",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "af46aa2a-3231-4153-8454-a82c9466e60e",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List all integrations configured for a specific API version."
+                          },
+                          "response": [
+                            {
+                              "id": "f8610745-9727-449d-bd92-8613f63fe214",
+                              "name": "Integration list",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "integrations"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"enabled\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"enabled\": \"<boolean>\"\n  }\n]",
+                              "createdAt": "2026-07-28T03:06:22.000Z",
+                              "updatedAt": "2026-07-28T03:06:22.000Z",
+                              "uid": "35240-f8610745-9727-449d-bd92-8613f63fe214"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:21.000Z",
+                          "updatedAt": "2026-07-28T03:06:21.000Z",
+                          "uid": "35240-20652720-4c06-4878-971b-b414b87e9244"
+                        },
+                        {
+                          "name": "Create Integration",
+                          "id": "03d81113-af70-43c5-8b88-36776a807ce8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"configType\": \"<string>\",\n  \"config\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apis",
+                                ":owner",
+                                ":api",
+                                ":version",
+                                "integrations"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "78900350-37f1-4325-b2db-717224bc4be2",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "cfd884f9-6d53-40a9-b4ba-763f098901c0",
+                                  "key": "api",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "6d351f29-d6c9-474c-87dc-e2b19f6da943",
+                                  "key": "version",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Configure a new integration (CI/CD, GitHub sync, etc.) for an API version."
+                          },
+                          "response": [
+                            {
+                              "id": "709c9634-738e-4772-8be4-523fb444c3f9",
+                              "name": "Integration created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"configType\": \"<string>\",\n  \"config\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/integrations",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "integrations"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "api"
+                                    },
+                                    {
+                                      "key": "version"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:06:22.000Z",
+                              "updatedAt": "2026-07-28T03:06:22.000Z",
+                              "uid": "35240-709c9634-738e-4772-8be4-523fb444c3f9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:06:21.000Z",
+                          "updatedAt": "2026-07-28T03:06:21.000Z",
+                          "uid": "35240-03d81113-af70-43c5-8b88-36776a807ce8"
+                        }
+                      ],
+                      "id": "0defd5b1-c23e-480e-bd49-b48d04c2083d",
+                      "createdAt": "2026-07-28T03:06:21.000Z",
+                      "updatedAt": "2026-07-28T03:06:21.000Z",
+                      "uid": "35240-0defd5b1-c23e-480e-bd49-b48d04c2083d"
+                    }
+                  ],
+                  "id": "1d6602ba-4e95-4f39-bdaf-421c21b80fdc",
+                  "createdAt": "2026-07-28T03:06:21.000Z",
+                  "updatedAt": "2026-07-28T03:06:21.000Z",
+                  "uid": "35240-1d6602ba-4e95-4f39-bdaf-421c21b80fdc"
+                }
+              ],
+              "id": "b957b6a6-3f58-4c2c-9e70-839e8f3d5832",
+              "createdAt": "2026-07-28T03:06:21.000Z",
+              "updatedAt": "2026-07-28T03:06:21.000Z",
+              "uid": "35240-b957b6a6-3f58-4c2c-9e70-839e8f3d5832"
+            }
+          ],
+          "id": "c1a92087-a186-4628-a6c4-b54c79319718",
+          "createdAt": "2026-07-28T03:06:21.000Z",
+          "updatedAt": "2026-07-28T03:06:21.000Z",
+          "uid": "35240-c1a92087-a186-4628-a6c4-b54c79319718"
+        }
+      ],
+      "id": "136ffd5c-2dc1-40e8-b5b7-877075da3d68",
+      "createdAt": "2026-07-28T03:06:21.000Z",
+      "updatedAt": "2026-07-28T03:06:21.000Z",
+      "uid": "35240-136ffd5c-2dc1-40e8-b5b7-877075da3d68"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.swaggerhub.com"
+    }
+  ]
+}

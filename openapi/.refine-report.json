@@ -1,0 +1,30 @@
+{
+  "provider": "swaggerhub",
+  "sources": [
+    "swaggerhub-apis-api-openapi.yml",
+    "swaggerhub-domains-api-openapi.yml",
+    "swaggerhub-integrations-api-openapi.yml",
+    "swaggerhub-organizations-api-openapi.yml",
+    "swaggerhub-projects-api-openapi.yml",
+    "swaggerhub-search-api-openapi.yml",
+    "swaggerhub-settings-api-openapi.yml",
+    "swaggerhub-standardization-api-openapi.yml",
+    "swaggerhub-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "swaggerhub-apis-api-openapi.yml",
+    "swaggerhub-domains-api-openapi.yml",
+    "swaggerhub-integrations-api-openapi.yml",
+    "swaggerhub-organizations-api-openapi.yml",
+    "swaggerhub-projects-api-openapi.yml",
+    "swaggerhub-search-api-openapi.yml",
+    "swaggerhub-settings-api-openapi.yml",
+    "swaggerhub-standardization-api-openapi.yml",
+    "swaggerhub-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

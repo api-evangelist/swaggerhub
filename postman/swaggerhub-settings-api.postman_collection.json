@@ -1,0 +1,323 @@
+{
+  "info": {
+    "_postman_id": "53ab0b12-a6f1-4982-9ab3-af20c7d4c24b",
+    "name": "SwaggerHub Registry APIs Settings API",
+    "description": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:25.000Z",
+    "updatedAt": "2026-07-28T03:07:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-53ab0b12-a6f1-4982-9ab3-af20c7d4c24b"
+  },
+  "item": [
+    {
+      "name": "apis",
+      "item": [
+        {
+          "name": "{owner}",
+          "item": [
+            {
+              "name": "{api}",
+              "item": [
+                {
+                  "name": "{version}",
+                  "item": [
+                    {
+                      "name": "settings",
+                      "item": [
+                        {
+                          "name": "lifecycle",
+                          "item": [
+                            {
+                              "name": "Get Lifecycle Settings",
+                              "id": "766c6be9-5470-4ec5-9bd8-cf310040af0e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/settings/lifecycle",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "settings",
+                                    "lifecycle"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1f033377-9358-4f96-b932-2ada5c242763",
+                                      "key": "owner",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "309c4579-eaea-4914-848b-1f3abe0b6cd7",
+                                      "key": "api",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "6ff680fc-0ad3-4b97-aa93-6df3e3bec2cb",
+                                      "key": "version",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get the publish/unpublish status of an API version."
+                              },
+                              "response": [
+                                {
+                                  "id": "c9e96fb3-a8ae-486b-ac80-2f141ded5824",
+                                  "name": "Lifecycle settings",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/apis/:owner/:api/:version/settings/lifecycle",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "apis",
+                                        ":owner",
+                                        ":api",
+                                        ":version",
+                                        "settings",
+                                        "lifecycle"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "owner"
+                                        },
+                                        {
+                                          "key": "api"
+                                        },
+                                        {
+                                          "key": "version"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:07:25.000Z",
+                                  "updatedAt": "2026-07-28T03:07:25.000Z",
+                                  "uid": "35240-c9e96fb3-a8ae-486b-ac80-2f141ded5824"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:07:25.000Z",
+                              "updatedAt": "2026-07-28T03:07:25.000Z",
+                              "uid": "35240-766c6be9-5470-4ec5-9bd8-cf310040af0e"
+                            },
+                            {
+                              "name": "Update Lifecycle Settings",
+                              "id": "3274c6e2-0693-40a7-b319-27b683b8b685",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"published\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/apis/:owner/:api/:version/settings/lifecycle",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "apis",
+                                    ":owner",
+                                    ":api",
+                                    ":version",
+                                    "settings",
+                                    "lifecycle"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "9bdd1368-f4f5-4441-b97a-17610f718574",
+                                      "key": "owner",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "6b258497-765a-478a-990b-91f8f6051cf8",
+                                      "key": "api",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "fc8e881d-7251-4cd6-a330-7e3f3b4be0ae",
+                                      "key": "version",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Publish or unpublish an API version."
+                              },
+                              "response": [
+                                {
+                                  "id": "e184fd0f-6a04-47a8-9a85-121b7969cdf8",
+                                  "name": "Settings updated",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"published\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/apis/:owner/:api/:version/settings/lifecycle",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "apis",
+                                        ":owner",
+                                        ":api",
+                                        ":version",
+                                        "settings",
+                                        "lifecycle"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "owner"
+                                        },
+                                        {
+                                          "key": "api"
+                                        },
+                                        {
+                                          "key": "version"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:07:25.000Z",
+                                  "updatedAt": "2026-07-28T03:07:25.000Z",
+                                  "uid": "35240-e184fd0f-6a04-47a8-9a85-121b7969cdf8"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:07:25.000Z",
+                              "updatedAt": "2026-07-28T03:07:25.000Z",
+                              "uid": "35240-3274c6e2-0693-40a7-b319-27b683b8b685"
+                            }
+                          ],
+                          "id": "c2d6abfa-bc68-4e5a-b6c7-4b14ae5b3d0c",
+                          "createdAt": "2026-07-28T03:07:25.000Z",
+                          "updatedAt": "2026-07-28T03:07:25.000Z",
+                          "uid": "35240-c2d6abfa-bc68-4e5a-b6c7-4b14ae5b3d0c"
+                        }
+                      ],
+                      "id": "bff5d90d-0c9a-4f34-80fe-81c77a2e62ea",
+                      "createdAt": "2026-07-28T03:07:25.000Z",
+                      "updatedAt": "2026-07-28T03:07:25.000Z",
+                      "uid": "35240-bff5d90d-0c9a-4f34-80fe-81c77a2e62ea"
+                    }
+                  ],
+                  "id": "fd800fc7-5fc0-4ae7-a7ce-0cab89411f5a",
+                  "createdAt": "2026-07-28T03:07:25.000Z",
+                  "updatedAt": "2026-07-28T03:07:25.000Z",
+                  "uid": "35240-fd800fc7-5fc0-4ae7-a7ce-0cab89411f5a"
+                }
+              ],
+              "id": "8bea26c4-7bd4-41dd-a508-4e4181c0ec91",
+              "createdAt": "2026-07-28T03:07:25.000Z",
+              "updatedAt": "2026-07-28T03:07:25.000Z",
+              "uid": "35240-8bea26c4-7bd4-41dd-a508-4e4181c0ec91"
+            }
+          ],
+          "id": "e9826b08-018e-4337-9415-b947a288404d",
+          "createdAt": "2026-07-28T03:07:25.000Z",
+          "updatedAt": "2026-07-28T03:07:25.000Z",
+          "uid": "35240-e9826b08-018e-4337-9415-b947a288404d"
+        }
+      ],
+      "id": "9418a31e-3635-4bf1-80d3-53af47790b60",
+      "createdAt": "2026-07-28T03:07:25.000Z",
+      "updatedAt": "2026-07-28T03:07:25.000Z",
+      "uid": "35240-9418a31e-3635-4bf1-80d3-53af47790b60"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.swaggerhub.com"
+    }
+  ]
+}

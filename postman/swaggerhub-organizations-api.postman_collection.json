@@ -1,0 +1,926 @@
+{
+  "info": {
+    "_postman_id": "a0c0e6db-97e1-46e9-86cd-70ba30ecef9f",
+    "name": "SwaggerHub Registry APIs Organizations API",
+    "description": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:22.000Z",
+    "updatedAt": "2026-07-28T03:07:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a0c0e6db-97e1-46e9-86cd-70ba30ecef9f"
+  },
+  "item": [
+    {
+      "name": "orgs",
+      "item": [
+        {
+          "name": "{org}",
+          "item": [
+            {
+              "name": "members",
+              "item": [
+                {
+                  "name": "{user}",
+                  "item": [
+                    {
+                      "name": "Remove Organization Member",
+                      "id": "bcbc23de-d8fc-4dac-8e43-27993921c935",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members",
+                            ":user"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f5206a8a-55e1-432e-8a81-9807fdb50216",
+                              "key": "org",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "247aa6df-f55a-4d4e-8e04-76223e270706",
+                              "key": "user",
+                              "value": "<string>",
+                              "description": "(Required) Email address or username of the member to remove"
+                            }
+                          ]
+                        },
+                        "description": "Remove a user from an organization. The user loses access to all org resources."
+                      },
+                      "response": [
+                        {
+                          "id": "c8d0e40f-f6ef-430c-bcd0-24e20cf1e506",
+                          "name": "Member removed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "orgs",
+                                ":org",
+                                "members",
+                                ":user"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "user"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:22.000Z",
+                          "updatedAt": "2026-07-28T03:07:22.000Z",
+                          "uid": "35240-c8d0e40f-f6ef-430c-bcd0-24e20cf1e506"
+                        },
+                        {
+                          "id": "a7c15b21-7ee8-4d14-952a-87fe9ce13769",
+                          "name": "Insufficient permissions",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "orgs",
+                                ":org",
+                                "members",
+                                ":user"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "user"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:22.000Z",
+                          "updatedAt": "2026-07-28T03:07:22.000Z",
+                          "uid": "35240-a7c15b21-7ee8-4d14-952a-87fe9ce13769"
+                        },
+                        {
+                          "id": "b973b08d-2ea1-4271-a972-7adde74a2504",
+                          "name": "Member not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "orgs",
+                                ":org",
+                                "members",
+                                ":user"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "user"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:22.000Z",
+                          "updatedAt": "2026-07-28T03:07:22.000Z",
+                          "uid": "35240-b973b08d-2ea1-4271-a972-7adde74a2504"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-bcbc23de-d8fc-4dac-8e43-27993921c935"
+                    },
+                    {
+                      "name": "Update Organization Member Role",
+                      "id": "df602cd5-6790-4532-9c48-d3dc587fc985",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"role\": \"CONSUMER\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members",
+                            ":user"
+                          ],
+                          "variable": [
+                            {
+                              "id": "da1a00de-4c8a-4ec3-8277-a602950b60e4",
+                              "key": "org",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "6eee7283-80c9-4f5b-b494-8df47fbdf08a",
+                              "key": "user",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Change a user's role within an organization."
+                      },
+                      "response": [
+                        {
+                          "id": "04672fe5-d82d-40fe-8014-b926e46becfb",
+                          "name": "Role updated",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"role\": \"CONSUMER\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "orgs",
+                                ":org",
+                                "members",
+                                ":user"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "user"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:22.000Z",
+                          "updatedAt": "2026-07-28T03:07:22.000Z",
+                          "uid": "35240-04672fe5-d82d-40fe-8014-b926e46becfb"
+                        },
+                        {
+                          "id": "dba8cb92-9259-4d16-8e58-703c2b14cf0c",
+                          "name": "Invalid role",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"role\": \"CONSUMER\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "orgs",
+                                ":org",
+                                "members",
+                                ":user"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "user"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:22.000Z",
+                          "updatedAt": "2026-07-28T03:07:22.000Z",
+                          "uid": "35240-dba8cb92-9259-4d16-8e58-703c2b14cf0c"
+                        },
+                        {
+                          "id": "a0e247be-a0d9-42ba-888c-cccceaa20480",
+                          "name": "Member not found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"role\": \"CONSUMER\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/orgs/:org/members/:user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "orgs",
+                                ":org",
+                                "members",
+                                ":user"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "user"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:22.000Z",
+                          "updatedAt": "2026-07-28T03:07:22.000Z",
+                          "uid": "35240-a0e247be-a0d9-42ba-888c-cccceaa20480"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-df602cd5-6790-4532-9c48-d3dc587fc985"
+                    }
+                  ],
+                  "id": "c35b3a34-a166-4db7-a04e-50688eefc03c",
+                  "createdAt": "2026-07-28T03:07:22.000Z",
+                  "updatedAt": "2026-07-28T03:07:22.000Z",
+                  "uid": "35240-c35b3a34-a166-4db7-a04e-50688eefc03c"
+                },
+                {
+                  "name": "Get Organization Members",
+                  "id": "f55144b2-cf11-4a59-9bb4-413c4ed8dd74",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orgs/:org/members?page=0&limit=25&q=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orgs",
+                        ":org",
+                        "members"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "25"
+                        },
+                        {
+                          "description": "Filter by first name, last name, or email",
+                          "key": "q",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b87b4564-c03b-4708-917a-648942818ca0",
+                          "key": "org",
+                          "value": "<string>",
+                          "description": "(Required) Organization name"
+                        }
+                      ]
+                    },
+                    "description": "Returns a paginated list of members in the specified organization with their user IDs, usernames, email addresses, roles, and account status."
+                  },
+                  "response": [
+                    {
+                      "id": "feb0fa58-6a52-4b0f-a4d0-b2643121739b",
+                      "name": "List of organization members",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members?page=0&limit=25&q=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Filter by first name, last name, or email",
+                              "key": "q",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"totalCount\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"members\": [\n    {\n      \"userId\": \"<string>\",\n      \"username\": \"<string>\",\n      \"email\": \"<email>\",\n      \"role\": \"DESIGNER\",\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"userId\": \"<string>\",\n      \"username\": \"<string>\",\n      \"email\": \"<email>\",\n      \"role\": \"DESIGNER\",\n      \"status\": \"INACTIVE\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-feb0fa58-6a52-4b0f-a4d0-b2643121739b"
+                    },
+                    {
+                      "id": "eeb0b74e-7d5c-4dd1-be49-9e178b431b61",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members?page=0&limit=25&q=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Filter by first name, last name, or email",
+                              "key": "q",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-eeb0b74e-7d5c-4dd1-be49-9e178b431b61"
+                    },
+                    {
+                      "id": "4af59591-bde1-45db-9795-899dcee85278",
+                      "name": "Insufficient permissions",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members?page=0&limit=25&q=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Filter by first name, last name, or email",
+                              "key": "q",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-4af59591-bde1-45db-9795-899dcee85278"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:22.000Z",
+                  "updatedAt": "2026-07-28T03:07:22.000Z",
+                  "uid": "35240-f55144b2-cf11-4a59-9bb4-413c4ed8dd74"
+                },
+                {
+                  "name": "Add Organization Members",
+                  "id": "5cbba0a9-728a-44e3-8550-7366a3bf2739",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"members\": [\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orgs/:org/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orgs",
+                        ":org",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8af29a35-4a53-4c95-89a1-7767b741b5ce",
+                          "key": "org",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Invite one or more users to an organization by email address. Optionally set their role (OWNER, DESIGNER, or CONSUMER). Non-existing users will receive an invitation email."
+                  },
+                  "response": [
+                    {
+                      "id": "87725829-0915-4016-be30-7f8e4de477c3",
+                      "name": "Members added/invited",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"members\": [\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-87725829-0915-4016-be30-7f8e4de477c3"
+                    },
+                    {
+                      "id": "f6c010ff-cc9d-46ca-80f3-2b615f36c3fc",
+                      "name": "Invalid request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"members\": [\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-f6c010ff-cc9d-46ca-80f3-2b615f36c3fc"
+                    },
+                    {
+                      "id": "9338e885-2d1d-46cd-8c47-e2749570e866",
+                      "name": "Only owners can add members",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"members\": [\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"role\": \"CONSUMER\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/orgs/:org/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orgs",
+                            ":org",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:22.000Z",
+                      "updatedAt": "2026-07-28T03:07:22.000Z",
+                      "uid": "35240-9338e885-2d1d-46cd-8c47-e2749570e866"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:22.000Z",
+                  "updatedAt": "2026-07-28T03:07:22.000Z",
+                  "uid": "35240-5cbba0a9-728a-44e3-8550-7366a3bf2739"
+                }
+              ],
+              "id": "6764e1ea-c700-44a1-849b-818ea200377c",
+              "createdAt": "2026-07-28T03:07:22.000Z",
+              "updatedAt": "2026-07-28T03:07:22.000Z",
+              "uid": "35240-6764e1ea-c700-44a1-849b-818ea200377c"
+            }
+          ],
+          "id": "cc01a08a-e97e-4b4f-a7e6-0322f392c479",
+          "createdAt": "2026-07-28T03:07:22.000Z",
+          "updatedAt": "2026-07-28T03:07:22.000Z",
+          "uid": "35240-cc01a08a-e97e-4b4f-a7e6-0322f392c479"
+        }
+      ],
+      "id": "c9059762-a0a3-4541-a0bb-40f712d0d943",
+      "createdAt": "2026-07-28T03:07:22.000Z",
+      "updatedAt": "2026-07-28T03:07:22.000Z",
+      "uid": "35240-c9059762-a0a3-4541-a0bb-40f712d0d943"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.swaggerhub.com"
+    }
+  ]
+}

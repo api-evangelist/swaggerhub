@@ -1,0 +1,347 @@
+{
+  "info": {
+    "_postman_id": "5614b44b-9d72-4720-8473-73227d1182d9",
+    "name": "SwaggerHub Registry APIs Standardization API",
+    "description": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:26.000Z",
+    "updatedAt": "2026-07-28T03:07:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5614b44b-9d72-4720-8473-73227d1182d9"
+  },
+  "item": [
+    {
+      "name": "standardization",
+      "item": [
+        {
+          "name": "spectral-rulesets",
+          "item": [
+            {
+              "name": "{owner}",
+              "item": [
+                {
+                  "name": "{name}",
+                  "item": [
+                    {
+                      "name": "zip",
+                      "item": [
+                        {
+                          "name": "Get Spectral Ruleset Bundle",
+                          "id": "a758afcb-cd14-4f88-8e7e-6925c1a259ff",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/zip"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/standardization/spectral-rulesets/:owner/:name/zip",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "standardization",
+                                "spectral-rulesets",
+                                ":owner",
+                                ":name",
+                                "zip"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4b708707-c8ff-4c75-a90d-78b6c4d16c1f",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "dafdca11-d6f8-43f1-8b56-e9fd39f5270f",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Download the Spectral ruleset bundle as a ZIP archive."
+                          },
+                          "response": [
+                            {
+                              "id": "414e9425-5e88-4b90-b7a0-3d1fbfef46ba",
+                              "name": "Ruleset ZIP bundle",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/zip"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/standardization/spectral-rulesets/:owner/:name/zip",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "standardization",
+                                    "spectral-rulesets",
+                                    ":owner",
+                                    ":name",
+                                    "zip"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/zip"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<binary>",
+                              "createdAt": "2026-07-28T03:07:26.000Z",
+                              "updatedAt": "2026-07-28T03:07:26.000Z",
+                              "uid": "35240-414e9425-5e88-4b90-b7a0-3d1fbfef46ba"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:26.000Z",
+                          "updatedAt": "2026-07-28T03:07:26.000Z",
+                          "uid": "35240-a758afcb-cd14-4f88-8e7e-6925c1a259ff"
+                        },
+                        {
+                          "name": "Upload Spectral Ruleset Bundle",
+                          "id": "6d1f876b-919a-4a94-827a-2c9f54e6564d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/zip"
+                              }
+                            ],
+                            "body": {
+                              "mode": "file",
+                              "file": {}
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/standardization/spectral-rulesets/:owner/:name/zip",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "standardization",
+                                "spectral-rulesets",
+                                ":owner",
+                                ":name",
+                                "zip"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b578cc86-950e-4614-a51c-813a32ca0394",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "d450d191-7ff7-43fc-a96e-f203e5ea40b7",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create or update a Spectral ruleset by uploading a ZIP bundle."
+                          },
+                          "response": [
+                            {
+                              "id": "0adcdbd3-a73b-4c04-8294-fd4e3b2b96b9",
+                              "name": "Ruleset updated",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/zip"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "file",
+                                  "file": {}
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/standardization/spectral-rulesets/:owner/:name/zip",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "standardization",
+                                    "spectral-rulesets",
+                                    ":owner",
+                                    ":name",
+                                    "zip"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:26.000Z",
+                              "updatedAt": "2026-07-28T03:07:26.000Z",
+                              "uid": "35240-0adcdbd3-a73b-4c04-8294-fd4e3b2b96b9"
+                            },
+                            {
+                              "id": "afd5b106-24f7-4332-a14e-e1537ff2983b",
+                              "name": "Ruleset created",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/zip"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "file",
+                                  "file": {}
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/standardization/spectral-rulesets/:owner/:name/zip",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "standardization",
+                                    "spectral-rulesets",
+                                    ":owner",
+                                    ":name",
+                                    "zip"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:26.000Z",
+                              "updatedAt": "2026-07-28T03:07:26.000Z",
+                              "uid": "35240-afd5b106-24f7-4332-a14e-e1537ff2983b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:26.000Z",
+                          "updatedAt": "2026-07-28T03:07:26.000Z",
+                          "uid": "35240-6d1f876b-919a-4a94-827a-2c9f54e6564d"
+                        }
+                      ],
+                      "id": "784dfc03-a59d-4f14-b6dd-e83676914e3e",
+                      "createdAt": "2026-07-28T03:07:26.000Z",
+                      "updatedAt": "2026-07-28T03:07:26.000Z",
+                      "uid": "35240-784dfc03-a59d-4f14-b6dd-e83676914e3e"
+                    }
+                  ],
+                  "id": "5e36ce4a-6c60-4c97-abdd-49df064fe97f",
+                  "createdAt": "2026-07-28T03:07:26.000Z",
+                  "updatedAt": "2026-07-28T03:07:26.000Z",
+                  "uid": "35240-5e36ce4a-6c60-4c97-abdd-49df064fe97f"
+                }
+              ],
+              "id": "36080c95-3c86-4f22-b9d0-2da2b8255fb3",
+              "createdAt": "2026-07-28T03:07:26.000Z",
+              "updatedAt": "2026-07-28T03:07:26.000Z",
+              "uid": "35240-36080c95-3c86-4f22-b9d0-2da2b8255fb3"
+            }
+          ],
+          "id": "06c69572-b85b-411a-99c8-6c7561997930",
+          "createdAt": "2026-07-28T03:07:26.000Z",
+          "updatedAt": "2026-07-28T03:07:26.000Z",
+          "uid": "35240-06c69572-b85b-411a-99c8-6c7561997930"
+        }
+      ],
+      "id": "30f729bf-e141-4549-88bd-e144fabc99d6",
+      "createdAt": "2026-07-28T03:07:26.000Z",
+      "updatedAt": "2026-07-28T03:07:26.000Z",
+      "uid": "35240-30f729bf-e141-4549-88bd-e144fabc99d6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.swaggerhub.com"
+    }
+  ]
+}

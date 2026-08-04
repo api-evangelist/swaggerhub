@@ -1,0 +1,440 @@
+{
+  "info": {
+    "_postman_id": "4ee38958-8bfe-4e56-9246-aa5d34edadc2",
+    "name": "SwaggerHub Registry APIs Domains API",
+    "description": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:06:20.000Z",
+    "updatedAt": "2026-07-28T03:06:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4ee38958-8bfe-4e56-9246-aa5d34edadc2"
+  },
+  "item": [
+    {
+      "name": "domains",
+      "item": [
+        {
+          "name": "{owner}",
+          "item": [
+            {
+              "name": "{domain}",
+              "item": [
+                {
+                  "name": "Get Domain Versions",
+                  "id": "03718c93-34c1-4ceb-8100-3462541dc32c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:owner/:domain",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":owner",
+                        ":domain"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ed19baa0-86f3-47a6-a08e-113d3f45e11f",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "a47f16bf-33b1-4e62-a0b0-8ccffeadffb1",
+                          "key": "domain",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Returns all versions of the specified domain."
+                  },
+                  "response": [
+                    {
+                      "id": "d27d1e3f-70d2-4cc7-b641-bad1096515bd",
+                      "name": "Domain version list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/domains/:owner/:domain",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "domains",
+                            ":owner",
+                            ":domain"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "domain"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"specType\": \"DOMAIN\",\n  \"visibility\": \"PUBLIC\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"versions\": [\n    {\n      \"version\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"published\": \"<boolean>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"version\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"published\": \"<boolean>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:06:21.000Z",
+                      "updatedAt": "2026-07-28T03:06:21.000Z",
+                      "uid": "35240-d27d1e3f-70d2-4cc7-b641-bad1096515bd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:06:21.000Z",
+                  "updatedAt": "2026-07-28T03:06:21.000Z",
+                  "uid": "35240-03718c93-34c1-4ceb-8100-3462541dc32c"
+                },
+                {
+                  "name": "Create or Update Domain",
+                  "id": "5ae71635-9b1b-4ba0-8740-fcb42608156b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:owner/:domain?version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":owner",
+                        ":domain"
+                      ],
+                      "query": [
+                        {
+                          "key": "version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8f25ad7e-2231-44e1-b623-b717c321928e",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "1653f937-2ba7-4b35-9fac-00f781ed7f66",
+                          "key": "domain",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create or update a shared component domain in SwaggerHub."
+                  },
+                  "response": [
+                    {
+                      "id": "a1c5d2c5-380b-4bfb-9ebf-cf455b9ca6cd",
+                      "name": "Domain updated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/domains/:owner/:domain?version=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "domains",
+                            ":owner",
+                            ":domain"
+                          ],
+                          "query": [
+                            {
+                              "key": "version",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "domain"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:21.000Z",
+                      "updatedAt": "2026-07-28T03:06:21.000Z",
+                      "uid": "35240-a1c5d2c5-380b-4bfb-9ebf-cf455b9ca6cd"
+                    },
+                    {
+                      "id": "46f69da7-d976-4d84-bde1-fbfefd323534",
+                      "name": "Domain created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/domains/:owner/:domain?version=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "domains",
+                            ":owner",
+                            ":domain"
+                          ],
+                          "query": [
+                            {
+                              "key": "version",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "domain"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:21.000Z",
+                      "updatedAt": "2026-07-28T03:06:21.000Z",
+                      "uid": "35240-46f69da7-d976-4d84-bde1-fbfefd323534"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:06:21.000Z",
+                  "updatedAt": "2026-07-28T03:06:21.000Z",
+                  "uid": "35240-5ae71635-9b1b-4ba0-8740-fcb42608156b"
+                },
+                {
+                  "name": "Delete Domain",
+                  "id": "021f4f30-abbb-4e44-8c85-3ec728b12f29",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:owner/:domain",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":owner",
+                        ":domain"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bde2fa38-ecdb-4738-964e-28503c585cfb",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "9ecd1f88-fdd9-4865-bd87-bc4542029724",
+                          "key": "domain",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete all versions of the specified domain."
+                  },
+                  "response": [
+                    {
+                      "id": "e41bc751-511a-4729-9e8f-963a2464aa4a",
+                      "name": "Domain deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/domains/:owner/:domain",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "domains",
+                            ":owner",
+                            ":domain"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            },
+                            {
+                              "key": "domain"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:06:21.000Z",
+                      "updatedAt": "2026-07-28T03:06:21.000Z",
+                      "uid": "35240-e41bc751-511a-4729-9e8f-963a2464aa4a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:06:21.000Z",
+                  "updatedAt": "2026-07-28T03:06:21.000Z",
+                  "uid": "35240-021f4f30-abbb-4e44-8c85-3ec728b12f29"
+                }
+              ],
+              "id": "93295987-362d-4784-8cb7-67acbe59e5cb",
+              "createdAt": "2026-07-28T03:06:21.000Z",
+              "updatedAt": "2026-07-28T03:06:21.000Z",
+              "uid": "35240-93295987-362d-4784-8cb7-67acbe59e5cb"
+            }
+          ],
+          "id": "db4b6132-f8d6-4014-a1f2-152f064290b0",
+          "createdAt": "2026-07-28T03:06:21.000Z",
+          "updatedAt": "2026-07-28T03:06:21.000Z",
+          "uid": "35240-db4b6132-f8d6-4014-a1f2-152f064290b0"
+        }
+      ],
+      "id": "425fbf3a-7ec8-43e4-8fba-79f99d74ab1e",
+      "createdAt": "2026-07-28T03:06:21.000Z",
+      "updatedAt": "2026-07-28T03:06:21.000Z",
+      "uid": "35240-425fbf3a-7ec8-43e4-8fba-79f99d74ab1e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.swaggerhub.com"
+    }
+  ]
+}
