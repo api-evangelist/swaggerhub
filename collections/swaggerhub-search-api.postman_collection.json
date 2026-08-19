@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "f1f9fc43-59b2-429b-ab4c-893b4c067773",
+      "name": "Search",
+      "description": {
+        "content": "Search across APIs, domains, and templates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff74324e-977a-4881-aad0-b8ee665e29f5",
+          "name": "Search APIs Domains and Templates",
+          "request": {
+            "name": "Search APIs Domains and Templates",
+            "description": {
+              "content": "Retrieve a paginated list of APIs, domains, and/or templates based on search criteria. Filter by type, owner, visibility, tags, and more.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "specType",
+                  "value": "<string>",
+                  "description": "Filter by specification type"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner",
+                  "value": "<string>",
+                  "description": "Filter by owner username or organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Free-text search query"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c97c683-1c2b-4f04-bce6-cc4c4685b2b8",
+              "name": "Paginated list of matching specs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "specType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 7246,\n  \"totalCount\": 4585,\n  \"apis\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"owner\": \"string\",\n      \"url\": \"http://qwrRjksEsk.epdBBKIhflA7bkuHglA4h.fFQCMn-5tBTmn\",\n      \"specType\": \"API\",\n      \"visibility\": \"PUBLIC\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"versions\": [\n        {\n          \"version\": \"string\",\n          \"created\": \"1968-01-08T22:08:30.573Z\",\n          \"modified\": \"1954-05-05T11:30:17.963Z\",\n          \"published\": true,\n          \"url\": \"http://qAYUKuJCAnYJNVCzgSZq.deqFktwfsyWP4dDMcYVUq0I4KDf\"\n        },\n        {\n          \"version\": \"string\",\n          \"created\": \"2022-12-14T05:17:39.884Z\",\n          \"modified\": \"2018-04-12T08:39:16.213Z\",\n          \"published\": true,\n          \"url\": \"https://ATQWeqiDbAIXHJlvPItNUEhkC.avycP+xgbLrWDBPA-zH+FgBigTy28CHDyNowW,cHBU0+fYOm.LsgjDGUA\"\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"owner\": \"string\",\n      \"url\": \"http://egNfnHwpxDsifX.rvzRjgt5s\",\n      \"specType\": \"API\",\n      \"visibility\": \"PRIVATE\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"versions\": [\n        {\n          \"version\": \"string\",\n          \"created\": \"1974-03-05T21:02:49.898Z\",\n          \"modified\": \"1999-07-27T03:42:19.827Z\",\n          \"published\": true,\n          \"url\": \"https://K.isriz0rn0abzfX.Y4dLkjD5eYvV,RuzLl9HHo2Pt3BR3QC3L\"\n        },\n        {\n          \"version\": \"string\",\n          \"created\": \"1952-07-28T16:04:02.238Z\",\n          \"modified\": \"1970-03-20T23:50:46.105Z\",\n          \"published\": false,\n          \"url\": \"https://WR.kaiYFKme0sFNjvBGoLWBkwdkrjGtTxMUU\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a9069cc-cb11-4c55-9e75-a4b05723fd3a",
+              "name": "Unauthorized — API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "specType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.swaggerhub.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1411b6f0-47fa-4a9e-a13f-1e40f5b917c3",
+    "name": "SwaggerHub Registry APIs Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.\n\nContact Support:\n Name: SmartBear SwaggerHub Support",
+      "type": "text/plain"
+    }
+  }
+}

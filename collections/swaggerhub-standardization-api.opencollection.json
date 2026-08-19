@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SwaggerHub Registry APIs Standardization API",
+    "version": "1.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Standardization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Spectral Ruleset Bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.swaggerhub.com/standardization/spectral-rulesets/:owner/:name/zip",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download the Spectral ruleset bundle as a ZIP archive."
+        },
+        {
+          "info": {
+            "name": "Upload Spectral Ruleset Bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.swaggerhub.com/standardization/spectral-rulesets/:owner/:name/zip",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create or update a Spectral ruleset by uploading a ZIP bundle."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
