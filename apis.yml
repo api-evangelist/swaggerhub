@@ -230,16 +230,16 @@ apis:
       https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis/user-management-api.html
   - type: APIReference
     url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
-- aid: swaggerhub:swaggerhub-ap-is-api
+- aid: swaggerhub:swaggerhub-apis-api
   name: SwaggerHub AP Is API
   description: Manage SwaggerHub API definitions and versions
   humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
   baseURL: https://api.swaggerhub.com
   tags:
-  - AP Is
+  - APIs
   properties:
   - type: OpenAPI
-    url: openapi/swaggerhub-ap-is-api-openapi.yml
+    url: openapi/swaggerhub-apis-api-openapi.yml
   - type: Documentation
     url: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
   - type: APIReference
