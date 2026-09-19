@@ -235,7 +235,8 @@ apis:
   description: Manage SwaggerHub API definitions and versions
   humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
   baseURL: https://api.swaggerhub.com
-  tags:
+  tags: []
+  tags_raw:
   - APIs
   properties:
   - type: OpenAPI
