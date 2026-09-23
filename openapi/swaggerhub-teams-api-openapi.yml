@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SwaggerHub Registry APIs Teams API
-  description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
-  version: 1.3.0
+  title: SwaggerHub User Management Teams API
+  description: The SwaggerHub User Management API enables organizations to automate user provisioning and access control. Use it to add/remove organization members, change user roles, manage team memberships, and control resource access permissions for users and teams.
+  version: 1.3.3
   contact:
     name: SmartBear SwaggerHub Support
     url: https://support.smartbear.com/swaggerhub/
@@ -13,7 +13,7 @@ info:
     url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 servers:
 - url: https://api.swaggerhub.com
-  description: SwaggerHub Registry API
+  description: SwaggerHub API
 security:
 - ApiKeyAuth: []
 tags:
@@ -159,6 +159,28 @@ paths:
           description: Member not found in team
 components:
   schemas:
+    Team:
+      type: object
+      description: A team within a SwaggerHub organization
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        memberCount:
+          type: integer
+    NewTeam:
+      type: object
+      description: Request body for creating a new team
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
     OrgMember:
       type: object
       description: A member of a SwaggerHub organization
@@ -182,31 +204,9 @@ components:
           - ACTIVE
           - PENDING
           - INACTIVE
-    NewTeam:
-      type: object
-      description: Request body for creating a new team
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-    Team:
-      type: object
-      description: A team within a SwaggerHub organization
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        memberCount:
-          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
       name: Authorization
-      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub. Pass the key as the Authorization header value without any prefix.
+      description: SwaggerHub API key. Obtain from My Account > API Key in SwaggerHub.

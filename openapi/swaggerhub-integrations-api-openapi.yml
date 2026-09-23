@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SwaggerHub Registry APIs Integrations API
+  title: SwaggerHub Registry Integrations API
   description: 'The SwaggerHub Registry API provides programmatic access to all SwaggerHub resources: APIs, domains, integrations, projects, templates, and standardization rulesets. Use it to manage API versions, publish APIs, run CI/CD integrations, manage projects, and retrieve OpenAPI definitions.'
   version: 1.3.0
   contact:
@@ -149,6 +149,19 @@ paths:
           description: Integration triggered
 components:
   schemas:
+    Integration:
+      type: object
+      description: An integration configured for an API version
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          description: Integration type (e.g., GITHUB, BITBUCKET, AWS_API_GATEWAY)
+        enabled:
+          type: boolean
     IntegrationConfig:
       type: object
       description: Configuration for creating or updating an integration
@@ -165,19 +178,6 @@ components:
         config:
           type: object
           description: Integration-specific configuration properties
-    Integration:
-      type: object
-      description: An integration configured for an API version
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-          description: Integration type (e.g., GITHUB, BITBUCKET, AWS_API_GATEWAY)
-        enabled:
-          type: boolean
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

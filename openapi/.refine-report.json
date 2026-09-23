@@ -1,30 +1,41 @@
 {
   "provider": "swaggerhub",
   "sources": [
-    "swaggerhub-apis-api-openapi.yml",
-    "swaggerhub-domains-api-openapi.yml",
-    "swaggerhub-integrations-api-openapi.yml",
-    "swaggerhub-organizations-api-openapi.yml",
-    "swaggerhub-projects-api-openapi.yml",
-    "swaggerhub-search-api-openapi.yml",
-    "swaggerhub-settings-api-openapi.yml",
-    "swaggerhub-standardization-api-openapi.yml",
-    "swaggerhub-teams-api-openapi.yml"
+    "_original/swaggerhub-registry-api-openapi.yml",
+    "_original/swaggerhub-user-management-openapi.yml"
   ],
   "outputs": [
     "swaggerhub-apis-api-openapi.yml",
     "swaggerhub-domains-api-openapi.yml",
     "swaggerhub-integrations-api-openapi.yml",
-    "swaggerhub-organizations-api-openapi.yml",
     "swaggerhub-projects-api-openapi.yml",
     "swaggerhub-search-api-openapi.yml",
     "swaggerhub-settings-api-openapi.yml",
     "swaggerhub-standardization-api-openapi.yml",
+    "swaggerhub-organizations-api-openapi.yml",
     "swaggerhub-teams-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "swaggerhub-registry-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "swaggerhub-user-management-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "superseded outputs removed: swaggerhub-ap-is-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 9 total)"
+  ],
+  "skipped": [
+    "swaggerhub-ap-is-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-domains-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-integrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-standardization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "swaggerhub-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
