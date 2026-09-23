@@ -231,7 +231,7 @@ apis:
   - type: APIReference
     url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
 - aid: swaggerhub:swaggerhub-apis-api
-  name: SwaggerHub AP Is API
+  name: SwaggerHub APIs API
   description: Manage SwaggerHub API definitions and versions
   humanURL: https://support.smartbear.com/swaggerhub/docs/en/swaggerhub-apis.html
   baseURL: https://api.swaggerhub.com
@@ -301,3 +301,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: smartbear
+x-relationship: acquisition
