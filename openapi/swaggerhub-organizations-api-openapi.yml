@@ -168,22 +168,6 @@ paths:
           description: Member not found
 components:
   schemas:
-    MemberInvite:
-      type: object
-      description: An invitation to add a user to an organization
-      required:
-      - email
-      properties:
-        email:
-          type: string
-          format: email
-        role:
-          type: string
-          enum:
-          - OWNER
-          - DESIGNER
-          - CONSUMER
-          default: CONSUMER
     OrgMember:
       type: object
       description: A member of a SwaggerHub organization
@@ -207,6 +191,22 @@ components:
           - ACTIVE
           - PENDING
           - INACTIVE
+    MemberInvite:
+      type: object
+      description: An invitation to add a user to an organization
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum:
+          - OWNER
+          - DESIGNER
+          - CONSUMER
+          default: CONSUMER
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -171,16 +171,6 @@ components:
           type: string
         memberCount:
           type: integer
-    NewTeam:
-      type: object
-      description: Request body for creating a new team
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
     OrgMember:
       type: object
       description: A member of a SwaggerHub organization
@@ -204,6 +194,16 @@ components:
           - ACTIVE
           - PENDING
           - INACTIVE
+    NewTeam:
+      type: object
+      description: Request body for creating a new team
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
