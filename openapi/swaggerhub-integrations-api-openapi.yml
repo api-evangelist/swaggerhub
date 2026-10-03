@@ -149,19 +149,6 @@ paths:
           description: Integration triggered
 components:
   schemas:
-    Integration:
-      type: object
-      description: An integration configured for an API version
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-          description: Integration type (e.g., GITHUB, BITBUCKET, AWS_API_GATEWAY)
-        enabled:
-          type: boolean
     IntegrationConfig:
       type: object
       description: Configuration for creating or updating an integration
@@ -178,6 +165,19 @@ components:
         config:
           type: object
           description: Integration-specific configuration properties
+    Integration:
+      type: object
+      description: An integration configured for an API version
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          description: Integration type (e.g., GITHUB, BITBUCKET, AWS_API_GATEWAY)
+        enabled:
+          type: boolean
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

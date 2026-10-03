@@ -85,6 +85,18 @@ paths:
           description: Unauthorized — API key required
 components:
   schemas:
+    ApisJson:
+      type: object
+      description: Paginated list of API entries from a SwaggerHub search
+      properties:
+        offset:
+          type: integer
+        totalCount:
+          type: integer
+        apis:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiEntry'
     ApiVersion:
       type: object
       description: A single version of an API in the SwaggerHub registry
@@ -102,18 +114,6 @@ components:
         url:
           type: string
           format: uri
-    ApisJson:
-      type: object
-      description: Paginated list of API entries from a SwaggerHub search
-      properties:
-        offset:
-          type: integer
-        totalCount:
-          type: integer
-        apis:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiEntry'
     ApiEntry:
       type: object
       description: Metadata for an API, domain, or template entry in the SwaggerHub registry
