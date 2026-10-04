@@ -159,6 +159,28 @@ paths:
           description: Member not found in team
 components:
   schemas:
+    NewTeam:
+      type: object
+      description: Request body for creating a new team
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Team:
+      type: object
+      description: A team within a SwaggerHub organization
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        memberCount:
+          type: integer
     OrgMember:
       type: object
       description: A member of a SwaggerHub organization
@@ -182,28 +204,6 @@ components:
           - ACTIVE
           - PENDING
           - INACTIVE
-    Team:
-      type: object
-      description: A team within a SwaggerHub organization
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        memberCount:
-          type: integer
-    NewTeam:
-      type: object
-      description: Request body for creating a new team
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

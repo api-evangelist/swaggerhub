@@ -102,23 +102,6 @@ paths:
           description: Domain deleted
 components:
   schemas:
-    ApiVersion:
-      type: object
-      description: A single version of an API in the SwaggerHub registry
-      properties:
-        version:
-          type: string
-        created:
-          type: string
-          format: date-time
-        modified:
-          type: string
-          format: date-time
-        published:
-          type: boolean
-        url:
-          type: string
-          format: uri
     ApiEntry:
       type: object
       description: Metadata for an API, domain, or template entry in the SwaggerHub registry
@@ -151,6 +134,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiVersion'
+    ApiVersion:
+      type: object
+      description: A single version of an API in the SwaggerHub registry
+      properties:
+        version:
+          type: string
+        created:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: boolean
+        url:
+          type: string
+          format: uri
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

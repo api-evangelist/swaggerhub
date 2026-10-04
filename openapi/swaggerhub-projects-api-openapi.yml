@@ -122,16 +122,6 @@ paths:
           description: Project not found
 components:
   schemas:
-    NewProject:
-      type: object
-      description: Request body for creating a new project
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
     Project:
       type: object
       description: A SwaggerHub project grouping APIs and domains
@@ -152,6 +142,16 @@ components:
           type: array
           items:
             type: string
+    NewProject:
+      type: object
+      description: Request body for creating a new project
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
