@@ -254,6 +254,9 @@ apis:
   - type: APIReference
     url: https://app.swaggerhub.com/apis-docs/swagger-hub/user-management-api/v1
 common:
+  - type: CapabilityMap
+    url: capabilities/swaggerhub-capability-edges.yml
+    name: SwaggerHub Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/swaggerhub/overview
   - type: AgenticAccess

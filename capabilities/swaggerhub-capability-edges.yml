@@ -1,0 +1,66 @@
+slug: swaggerhub
+provider: SwaggerHub
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: APIs
+  spec_file: swaggerhub-apis-api-openapi.yml
+  capability_id: BC-4270.10
+  capability_id_l1: BC-4270
+  capability_name: Public API Lifecycle Management
+  confidence: 0.85
+  evidence: GET /apis/{owner}/{api} getApiVersions 'Get API Versions'; POST /apis/{owner}/{api} 'Create
+    or Update API'; schema ApiVersion
+  reason: Operations manage API definitions and their versions in a registry, matching specification and
+    versioning of APIs under Public API Lifecycle Management.
+- tag: Organizations
+  spec_file: swaggerhub-organizations-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: '"enables organizations to automate user provisioning and access control"; Add Organization
+    Members / Update Organization Member Role'
+  reason: Operations add/remove org members and change roles — user provisioning and access control, i.e.
+    identity and access management, not a business-domain capability.
+- tag: Domains
+  spec_file: swaggerhub-domains-api-openapi.yml
+  capability_id: BC-4270.10
+  capability_id_l1: BC-4270
+  capability_name: Public API Lifecycle Management
+  confidence: 0.7
+  evidence: GET /domains/{owner}/{domain} getDomainVersions 'Get Domain Versions'; schemas ApiVersion,
+    ApiEntry
+  reason: Domains are reusable OpenAPI definition components versioned alongside APIs in the SwaggerHub
+    registry, so this remains API specification/versioning; narrower scope gives moderate confidence.
+- tag: Integrations
+  spec_file: swaggerhub-integrations-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.7
+  evidence: '"run CI/CD integrations"; POST /apis/{owner}/{api}/{version}/integrations/{integrationId}/execute  Execute
+    Integration'
+  reason: SwaggerHub integrations attach CI/CD pipeline hooks (e.g. GitHub sync, Jenkins builds) to an
+    API version and execute them, which is continuous integration pipeline configuration. Moderate confidence
+    since the integration targets are not enumerated.
+- tag: Teams
+  spec_file: swaggerhub-teams-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: '"manage team memberships, and control resource access permissions for users and teams"; Add
+    Team Member / Remove Team Member'
+  reason: Team CRUD and membership management used to control resource access permissions — access group
+    administration under IAM, not HR org design.
